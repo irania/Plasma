@@ -46,27 +46,28 @@ public class AutoActivity extends MyActivity implements OnClickListener {
     public void onClick(View arg0) {
 
         //declaring intents
-        Intent int_step=new Intent(AutoActivity.this,SelectStep.class);
+        Intent int_start=new Intent(AutoActivity.this,StartActivity.class);
+        //Pages.step = Pages.LOW;
 
         //starting corresponding intents
         if (arg0.getId()==R.id.btn_acne){
             Pages.auto_type = Pages.ACNE;
-            startActivity(int_step);
+            startActivity(int_start);
         }
 
         if (arg0.getId()==R.id.btn_blepharoplasty){
             Pages.auto_type = Pages.BLEPHARO;
-            startActivity(int_step);
+            startActivity(int_start);
         }
 
         if (arg0.getId()==R.id.btn_scar){
             Pages.auto_type = Pages.SCAR;
-            startActivity(int_step);
+            startActivity(int_start);
         }
 
         if(arg0.getId() == R.id.btn_mole){
             Pages.auto_type = Pages.MOLE;
-            startActivity(int_step);
+            startActivity(int_start);
         }
 
 

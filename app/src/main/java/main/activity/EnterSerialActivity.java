@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.Tirax.RF.Enums.SecurityType;
+import com.Tirax.RF.License;
 import com.Tirax.RF.MyActivity;
 import com.Tirax.RF.SecurityFile;
 import com.example.cryo.R;
@@ -26,6 +27,9 @@ public class EnterSerialActivity extends MyActivity implements  View.OnClickList
 
         serial_textview = (TextView) findViewById(R.id.txt_pass);
         setserialText();
+
+        TextView tv = (TextView) findViewById(R.id.txt_pass_main);
+        tv.setText("Please Enter Serial Code. ");
 
 
     }
@@ -114,10 +118,14 @@ public class EnterSerialActivity extends MyActivity implements  View.OnClickList
         }
         if (v.getId()==R.id.btn_next_pass){
 
-            Intent int_setting = new Intent(EnterSerialActivity.this,MainSettingsActivity.class);
-            SecurityFile.save(SecurityType.SERIAL,serial_txt);
-            startActivity(int_setting);
-            this.finish();
+            //TODO test it
+            if(serial_txt.length()==6) {
+                SecurityFile.save(SecurityType.SERIAL, serial_txt);
+                License.initializeTime();
+                Intent int_setting = new Intent(EnterSerialActivity.this, MainActivity.class);
+                startActivity(int_setting);
+                this.finish();
+            }
 
         }
 

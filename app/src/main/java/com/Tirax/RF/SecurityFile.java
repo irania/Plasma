@@ -94,22 +94,5 @@ public class SecurityFile {
     }
 
 
-    public static void getHashNumber(String item){
 
-
-        try {
-            MessageDigest md = MessageDigest.getInstance("MD5");
-
-            byte[] digest = md.digest((item+ PublicKey1 + PublicKey2).getBytes());
-
-            StringBuffer sb = new StringBuffer();
-            int hashSum=0;
-            for (byte b : digest) {
-                hashSum +=b;
-            }
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-        }
-
-    }
 }

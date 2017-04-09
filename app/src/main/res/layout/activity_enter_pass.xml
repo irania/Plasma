@@ -151,9 +151,11 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#fff"
         android:textSize="20dp"
+        android:gravity="center"
+        android:textAlignment="center"
         android:layout_below="@+id/btn_back_pass"
-        android:layout_alignLeft="@+id/txt_pass"
-        android:layout_alignStart="@+id/txt_pass" />
+        android:layout_toLeftOf="@+id/button0"
+        android:layout_toStartOf="@+id/button0" />
     <TextView
         android:layout_width="400dp"
         android:layout_height="wrap_content"

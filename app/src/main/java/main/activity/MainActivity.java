@@ -68,20 +68,32 @@ public class MainActivity  extends Activity    implements OnClickListener{
 			 goToCorrectPage();
 			 DisplayHandler.postDelayed(ErrorRunnable, 200);
 
-			 SecurityFile.generatePrivateKey();
+			 //TODO licence
+			 //SecurityFile.generatePrivateKey();
 
 
+			 Pages.auto_manual = Pages.AUTO;
+			 if(true){
+			 //TODO licence
+			 //if(License.licenceIsOk()) {
 
-			 if(true){//License.licenceIsOk()) {
 
-				 Pages.auto_manual = Pages.AUTO;
 				 Intent int_auto = new Intent(MainActivity.this, AutoActivity.class);
 				 startActivity(int_auto);
 			 }else
 			 {
-				 License.generateReqCode();
-				 Intent int_ask_licence = new Intent(MainActivity.this, AskKeyActivity.class);
-				 startActivity(int_ask_licence);
+				 String serial  = SecurityFile.load(SecurityType.SERIAL);
+				 if(serial!=null) {
+
+					 License.generateReqCode();
+					 Intent int_ask_licence = new Intent(MainActivity.this, AskKeyActivity.class);
+					 startActivity(int_ask_licence);
+				 }
+				 else{
+
+					 Intent int_ask_serial = new Intent(MainActivity.this, EnterSerialActivity.class);
+					 startActivity(int_ask_serial);
+				 }
 			 }
 
 		 }catch(Exception ex){

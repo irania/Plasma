@@ -56,7 +56,7 @@ import com.example.cryo.*;
 
 		private void setPowerValue() {
 			if(Pages.step == Pages.LOW)
-				powerValue=25;
+				powerValue=5;
 			else if(Pages.step == Pages.MEDIUM)
 				powerValue =50;
 			else

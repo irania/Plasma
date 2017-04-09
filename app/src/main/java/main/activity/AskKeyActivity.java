@@ -7,9 +7,16 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.Tirax.RF.Enums.SecurityType;
+import com.Tirax.RF.License;
 import com.Tirax.RF.MyActivity;
+import com.Tirax.RF.SecurityFile;
 import com.example.cryo.R;
 
+import java.util.Calendar;
+
+import main.activity.Auto.AutoActivity;
+//TODO test it
 public class AskKeyActivity extends MyActivity implements  View.OnClickListener {
 
     TextView pass_textview;
@@ -25,18 +32,19 @@ public class AskKeyActivity extends MyActivity implements  View.OnClickListener 
         pass_textview = (TextView) findViewById(R.id.txt_pass);
         setPassText();
 
-        //TextView tv = n
+        TextView tv = (TextView) findViewById(R.id.txt_pass_main);
+        try {
+            tv.setText("Please Contact Support. Code: "+ SecurityFile.load(SecurityType.REQUEST_CODE));
+        } catch (Exception e) {
+            tv.setText("Please Contact Support. Code is not Accessible.");
+            e.printStackTrace();
+        }
 
 
     }
 
     private void setPassText() {
-        String txt="";
-        for(int i=0;i<pass_txt.length();i++)
-        {
-            txt+="*";
-        }
-        pass_textview.setText(txt);
+        pass_textview.setText(pass_txt);
     }
 
 
@@ -118,10 +126,26 @@ public class AskKeyActivity extends MyActivity implements  View.OnClickListener 
             this.finish();
         }
         if (v.getId()==R.id.btn_next_pass){
-            if(pass_txt.equals("1394")) {
-                Intent int_setting = new Intent(AskKeyActivity.this,MainSettingsActivity.class);
-                startActivity(int_setting);
-                this.finish();
+            try {
+                if(License.isTrueKey(pass_txt)) {
+
+
+                        License.UpdateValidTime(pass_txt);
+                        License.UpdateValidDate(pass_txt);
+
+                        Intent int_setting = new Intent(AskKeyActivity.this,MainActivity.class);
+                        startActivity(int_setting);
+                        this.finish();
+                }
+                else{
+                    if(License.isTrial()){
+                        Intent int_setting = new Intent(AskKeyActivity.this,AutoActivity.class);
+                        startActivity(int_setting);
+                    }
+                }
+            } catch (Exception e) {
+                //TODO what should i do?
+                e.printStackTrace();
             }
         }
 
