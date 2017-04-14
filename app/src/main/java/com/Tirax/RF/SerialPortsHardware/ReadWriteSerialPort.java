@@ -13,10 +13,12 @@ import com.Tirax.RF.SharedPrefrences;
 
 public class ReadWriteSerialPort extends AsyncTask<Void, Void, Void>{
 
+	public static int Run=1;
+
 	private final static Integer RESENDTIME = 300;
 
 	public final static Integer REGISTERS_NUMBER = 50;
-	
+
 	private final static char WRITE_STARTBIT =255;
 	private final char ACK_STARTBIT =254;
 	
@@ -48,7 +50,7 @@ public class ReadWriteSerialPort extends AsyncTask<Void, Void, Void>{
 			initialRegisters();
 				ResendRunnableHandler.postDelayed(ResendRunnable, 0);
 
-				while (true) {
+				while (Run==1) {
 					readSerialPort();
 			}
 		} catch (Exception ex) {
@@ -78,7 +80,7 @@ public class ReadWriteSerialPort extends AsyncTask<Void, Void, Void>{
 				SharedPrefrences.setReseted(false);
 				logRegisters();
 		}else {
-//TODO reset
+			//TODO reset
 
 			for (int i = 0; i < REGISTERS_NUMBER; i++) {
 				registers.add((char) 0);
@@ -104,7 +106,7 @@ public class ReadWriteSerialPort extends AsyncTask<Void, Void, Void>{
 				writeData = c;
 				writeState = WAIT_ACK;
 			}else if(writeState==WAIT_ACK){
-				if (c==calcAckCode(writeReg,writeData)) {
+				if (c==SerialComHelper.calcAckCode(writeReg, writeData)) {
 					if (writeReg < REGISTERS_NUMBER) {
 						registers.set(writeReg, writeData);
 						checkForSendAllRegisters(writeReg);
@@ -117,7 +119,7 @@ public class ReadWriteSerialPort extends AsyncTask<Void, Void, Void>{
 						Log.e("TIRAX Error", "ReadWriteSerialPort readSerialPort Reisters Out of bound exception.");
 					}
 
-					sendAck(calcAckCode(writeReg, writeData));
+					sendAck(SerialComHelper.calcAckCode(writeReg, writeData));
 					if (LogCatEnabler.accAccepted) {
 						//if(DataProvider.registersUseful[(int)changedRegisters.get(0)])
 						Log.e("TIRAX4", "UI: Ack => "+DataProvider.getRegisterName((int)writeReg));
@@ -154,9 +156,6 @@ public class ReadWriteSerialPort extends AsyncTask<Void, Void, Void>{
 		}
 	}
 
-	private static char calcAckCode(char r,char d){
-		return (char) ((r ^ d) & 0x7f);
-	}
 	private void sendAck(char code){
 		SerialPort.sendByte(ACK_STARTBIT);
 		SerialPort.sendByte(code);
@@ -168,16 +167,12 @@ public class ReadWriteSerialPort extends AsyncTask<Void, Void, Void>{
 			return;
 		char Register=changedRegisters.get(0);
 		char Data=registers.get(Register);
-		SerialPort.sendByte(WRITE_STARTBIT);
-		SerialPort.sendByte(Register);
-		SerialPort.sendByte(Data);
-		SerialPort.sendByte(calcAckCode(Register,Data));
-
+		SerialComHelper.sendRegister(Register,Data);
 		if (LogCatEnabler.registerSendInline) {
 			Log.e("TIRAX4", "UI: " +(int)Data+" => "+ DataProvider.getRegisterName((int) Register));
 		}
 
-		waited_ack = calcAckCode(Register, Data);
+		waited_ack = SerialComHelper.calcAckCode(Register, Data);
 		resendTimer=RESENDTIME;
 	}
 	

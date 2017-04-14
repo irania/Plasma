@@ -5,9 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.Tirax.RF.Enums.SecurityType;
 import com.Tirax.RF.MyActivity;
-import com.Tirax.RF.SecurityFile;
 import com.example.cryo.R;
 
 /**
@@ -23,12 +21,14 @@ public class MainSettingsActivity extends MyActivity implements  View.OnClickLis
         Button exit = (Button)findViewById(R.id.btn_settings_exit);
         Button log = (Button)findViewById(R.id.btn_settings_logs);
         Button time = (Button)findViewById(R.id.btn_settings_time);
+        Button serial_brief_test = (Button)findViewById(R.id.btn_settings_serialtext);
         //Button serial = (Button)findViewById(R.id.btn_settings_serial);
 
         back.setOnClickListener(this);
         exit.setOnClickListener(this);
         log.setOnClickListener(this);
-        time.setOnClickListener(this);
+        serial_brief_test.setOnClickListener(this);
+
 
         /*try {
             if(SecurityFile.load(SecurityType.SERIAL)==null)
@@ -69,5 +69,11 @@ public class MainSettingsActivity extends MyActivity implements  View.OnClickLis
             Intent int_settings = new Intent(MainSettingsActivity.this,EnterSerialActivity.class);
             startActivity(int_settings);
         }
+
+        if (v.getId()==R.id.btn_settings_serialtext){
+            Intent int_settings = new Intent(MainSettingsActivity.this,TestResult.class);
+            startActivity(int_settings);
+        }
+
     }
 }
