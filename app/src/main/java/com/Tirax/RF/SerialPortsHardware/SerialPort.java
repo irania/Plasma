@@ -68,10 +68,9 @@ public class SerialPort {
 			Log.e("ERROR TIRAX ","in turn off on serial port "+ex);
 		}
 	}
-	
 	public static boolean isData(){
 		try{
-			int sts= HardwareControler.select(fd, 1, 0);
+			int sts= HardwareControler.select(fd, 0, 1);
 			if(sts==1)
 				return true;
 			else if(sts==0)

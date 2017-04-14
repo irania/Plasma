@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.Tirax.RF.Enums.TestType;
 import com.Tirax.RF.MyActivity;
 import com.example.cryo.R;
 
@@ -22,12 +23,14 @@ public class MainSettingsActivity extends MyActivity implements  View.OnClickLis
         Button log = (Button)findViewById(R.id.btn_settings_logs);
         Button time = (Button)findViewById(R.id.btn_settings_time);
         Button serial_brief_test = (Button)findViewById(R.id.btn_settings_serialtext);
+        Button power0t100_test = (Button)findViewById(R.id.btn_settings_power0t100);
         //Button serial = (Button)findViewById(R.id.btn_settings_serial);
 
         back.setOnClickListener(this);
         exit.setOnClickListener(this);
         log.setOnClickListener(this);
         serial_brief_test.setOnClickListener(this);
+        power0t100_test.setOnClickListener(this);
 
 
         /*try {
@@ -65,13 +68,16 @@ public class MainSettingsActivity extends MyActivity implements  View.OnClickLis
             startActivity(int_settings);
         }
 
-        if(v.getId()==R.id.btn_settings_serial){
-            Intent int_settings = new Intent(MainSettingsActivity.this,EnterSerialActivity.class);
+
+        if (v.getId()==R.id.btn_settings_power0t100){
+            Intent int_settings = new Intent(MainSettingsActivity.this,TestResult.class);
+            TestResult.test = TestType.POWER0T100;
             startActivity(int_settings);
         }
 
         if (v.getId()==R.id.btn_settings_serialtext){
             Intent int_settings = new Intent(MainSettingsActivity.this,TestResult.class);
+            TestResult.test = TestType.SERIAL_BRIEF;
             startActivity(int_settings);
         }
 

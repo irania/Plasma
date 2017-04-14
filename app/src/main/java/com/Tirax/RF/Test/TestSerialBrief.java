@@ -1,28 +1,35 @@
 package com.Tirax.RF.Test;
 
+import com.Tirax.RF.SerialPortsHardware.DataProvider;
 import com.Tirax.RF.SerialPortsHardware.ReadWriteSerialPort;
 import com.Tirax.RF.SerialPortsHardware.SerialComHelper;
+
+import main.activity.TestResult;
 
 /**
  * Created by MHSaadatfar on 4/14/2017.
  */
 public class TestSerialBrief {
-    public String Run(){
-        ReadWriteSerialPort.Run=0;
-        SerialComHelper.sendRegister((char)11,(char) 2);
-        char ack=SerialComHelper.calcAckCode((char)11,(char) 2);
+    public void Run(){
+        TestHelper.StopSerialService();
+        SerialComHelper.sendRegister(DataProvider.RUST,(char) 2);
+        char ack=SerialComHelper.calcAckCode(DataProvider.RUST, (char) 2);
         int d1=TestHelper.WaitForSerial(SerialComHelper.ACK_STARTBIT,1000);
         if (d1==1000){
-            ReadWriteSerialPort.Run=1;
-            return "Failed.";
+            TestHelper.StartSerialService();
+            TestResult.appendLog("Failed.\n");
+            return;
         }
+        TestResult.appendLog("Ack Start Bit Received. Delay: " + d1+ "ms\n");
         int d2=TestHelper.WaitForSerial(ack,1000);
-        SerialComHelper.sendRegister((char)11,(char) 0);
         if (d2==1000){
-            ReadWriteSerialPort.Run=1;
-            return "Failed.";
+            TestHelper.StartSerialService();
+            TestResult.appendLog("Failed.\n");
+            return;
         }
-        ReadWriteSerialPort.Run=1;
-        return "Passed. Delays:" + Integer.toString(d1) + "," + Integer.toString(d2);
+        TestHelper.StartSerialService();
+        TestResult.appendLog("Ack Received. Delay: " + d2 +"ms\n");
+        TestResult.appendLog("Passed.\n");
+        return;
     }
 }

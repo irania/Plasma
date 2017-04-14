@@ -61,6 +61,11 @@ public class DataProvider extends ReadWriteSerialPort {
 		errors.add(new Error124());
 	}
 
+	public static void zeroAllRegisters(){
+		for (char i=0;i<REGISTERS_NUMBER;i++){
+			setRegister(i,(char)0);
+		}
+	}
 	public static boolean isError() {
 		if(getRegister(RMER)>0){
 			beforeErr = true;

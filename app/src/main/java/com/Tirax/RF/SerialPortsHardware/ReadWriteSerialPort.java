@@ -48,9 +48,9 @@ public class ReadWriteSerialPort extends AsyncTask<Void, Void, Void>{
 		try {
 
 			initialRegisters();
-				ResendRunnableHandler.postDelayed(ResendRunnable, 0);
-
-				while (Run==1) {
+			ResendRunnableHandler.postDelayed(ResendRunnable, 0);
+			while (true) {
+				if (Run==1)
 					readSerialPort();
 			}
 		} catch (Exception ex) {

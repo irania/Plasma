@@ -2,6 +2,7 @@ package com.Tirax.RF.Test;
 
 import android.os.SystemClock;
 
+import com.Tirax.RF.SerialPortsHardware.ReadWriteSerialPort;
 import com.Tirax.RF.SerialPortsHardware.SerialPort;
 
 /**
@@ -11,13 +12,35 @@ public class TestHelper {
     public static int WaitForSerial(char data,int max){
         int d=0;
         for (int i=1;i<=max;i++) {
-            SystemClock.sleep(1);
+            try {
+                Thread.sleep(1);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             d++;
-            char c= SerialPort.read();
-            if (c==data){
-                return d;
+            if(SerialPort.isData()) {
+                char c = SerialPort.read();
+                if (c==data){
+                    return d;
+                }
             }
         }
         return max;
+    }
+    public static void StopSerialService(){
+        ReadWriteSerialPort.Run=0;
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+    public static void StartSerialService(){
+        ReadWriteSerialPort.Run=1;
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }
