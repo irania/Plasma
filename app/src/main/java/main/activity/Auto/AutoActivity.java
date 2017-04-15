@@ -46,7 +46,7 @@ public class AutoActivity extends MyActivity implements OnClickListener {
     public void onClick(View arg0) {
 
         //declaring intents
-        Intent int_start=new Intent(AutoActivity.this,StartActivity.class);
+        Intent int_start=new Intent(AutoActivity.this,SelectStep.class);
         //Pages.step = Pages.LOW;
 
         //starting corresponding intents

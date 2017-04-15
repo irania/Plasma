@@ -64,8 +64,6 @@ public class MainActivity  extends Activity    implements OnClickListener{
 			 //run serial port
 			 SerialPort.turnOn();
 			 new DataProvider().execute();
-
-			 goToCorrectPage();
 			 DisplayHandler.postDelayed(ErrorRunnable, 200);
 
 			 //TODO licence
@@ -110,18 +108,6 @@ public class MainActivity  extends Activity    implements OnClickListener{
 			dlgAlertError.show();
 			dlgAlertError.textDia.setText("Please Call Support");
 
-		}
-	}
-
-	private void goToCorrectPage() {
-		//TODO fixit
-		android.os.SystemClock.sleep(100);
-
-		if(DataProvider.isDeviceOn()) {
-
-				//StopActivity.time = SharedPrefrences.getTime();
-				Intent int_auto = new Intent(MainActivity.this, StopActivity.class);
-				startActivity(int_auto);
 		}
 	}
 

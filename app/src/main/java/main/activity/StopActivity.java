@@ -4,6 +4,7 @@ package main.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Debug;
 import android.os.Handler;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -236,48 +237,6 @@ public class StopActivity extends MyActivity implements OnClickListener {
 		@Override
 		public void run() {
 
-
-/*
-			HardwareControler.PWMStop();
-			inrunnable++;
-
-
-			if(inrunnable>60 && (DataProvider.getRegister(DataProvider.RCRN)>135 ||
-					DataProvider.getRegister((char)(DataProvider.RCRN+1))>128))
-			{
-				if(!mute) {
-					HardwareControler.PWMPlay(2000);
-					inrunnable = 0;
-				}
-
-			}*/
-
-			//Log.e("TIRAX","pause activated Values value: "+(int)DataProvider.getRegister(DataProvider.RMKY_PAUSE));
-			if(DataProvider.getBit(DataProvider.RMKY, DataProvider.RMKY_PAUSE)) {
-
-				if (Values.PAUSE == 0) {
-					if (pause == false) {
-
-						stopButton.setBackgroundResource(R.drawable.pause);
-						pause = true;
-						if(LogCatEnabler.startStop)
-							Log.e("TIRAX3",">>>>>>>>>>>>>>> PAUSE <<<<<<<<<<<<<<<<<");
-						DataProvider.setRegister(DataProvider.RTYP0, (char) 0);
-
-
-					}else {
-
-							stopButton.setBackgroundResource(R.drawable.stopbut);
-							pause = false;
-							Compiler.setRTYPRegister(op);
-
-					}
-				}
-				Values.PAUSE=1;
-
-			}else{
-				Values.PAUSE=0;
-			}
 			ImageButton powerRange = (ImageButton)findViewById(R.id.btn_stop_power_range);
 			if(DataProvider.getPedalisActive()) {
 				powerRange.getLayoutParams().height = (10 - (int)Math.ceil((double)(seekBarProgress * op.powerMultiplyer) / 10.0)) * 20;
@@ -286,7 +245,7 @@ public class StopActivity extends MyActivity implements OnClickListener {
 				powerRange.getLayoutParams().height = (10)*20;
 
 			if(DataProvider.getPedalisActive()){
-				PedalWasActive=10;
+				PedalWasActive=100;
 
 			}
 			else{
@@ -294,7 +253,7 @@ public class StopActivity extends MyActivity implements OnClickListener {
 			}
 			timetext.setText((time-1)+"'");
 			if(!finished)
-				UIHandler.postDelayed(UIreportsRunnable, 100);
+				UIHandler.postDelayed(UIreportsRunnable, 1);
 		}
 
 	};

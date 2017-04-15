@@ -15,20 +15,14 @@ public class TestRun0t100 {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        for (char i=0;i<=40;i++) {
-            if (Thread.interrupted()) return;
-            int p;
-            if (i<=20)
-                p=i*5;
-            else
-                p=(40-i)*5;
-            DataProvider.setRegister(DataProvider.RPWR, (char) p);
+        for (char i=0;i<=20;i++) {
+            while (DataProvider.getPedalisActive()==true)
+                if (Thread.interrupted()) return;
+            char p = (char) (i*5);
+            DataProvider.setRegister(DataProvider.RPWR, p);
             TestResult.setLog("Power: " + Integer.toString(p) + "%");
-            try {
-                Thread.sleep(500);
-            } catch (InterruptedException e) {
-                return;
-            }
+            while (DataProvider.getPedalisActive()==false)
+                if (Thread.interrupted()) return;
         }
         TestResult.setLog("Done.");
     }
