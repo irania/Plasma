@@ -10,8 +10,8 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.Tirax.RF.MyActivity;
-import com.Tirax.RF.Storage.Values;
+import com.Tirax.Plasma.MyActivity;
+import com.Tirax.Plasma.Storage.Values;
 import com.example.cryo.R;
 
 import main.activity.StartActivity;

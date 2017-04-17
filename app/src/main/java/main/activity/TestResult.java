@@ -6,11 +6,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.Tirax.RF.Enums.TestType;
-import com.Tirax.RF.MyActivity;
-import com.Tirax.RF.SerialPortsHardware.DataProvider;
-import com.Tirax.RF.Test.TestRun0t100;
-import com.Tirax.RF.Test.TestSerialBrief;
+import com.Tirax.Plasma.Enums.TestType;
+import com.Tirax.Plasma.MyActivity;
+import com.Tirax.Plasma.SerialPortsHardware.DataProvider;
+import com.Tirax.Plasma.Test.TestRun0t100;
+import com.Tirax.Plasma.Test.TestSerialBrief;
 import com.example.cryo.R;
 
 public class TestResult extends MyActivity implements View.OnClickListener {

@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.Tirax.RF.MyActivity;
+import com.Tirax.Plasma.MyActivity;
 import com.example.cryo.R;
 
 public class EnterPassActivity extends MyActivity implements  View.OnClickListener {

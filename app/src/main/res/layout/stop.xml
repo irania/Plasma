@@ -6,7 +6,7 @@
     android:background="@drawable/stoprfcryo"
     android:orientation="vertical" >
 
-    <com.Tirax.RF.TextFont
+    <com.Tirax.Plasma.TextFont
         android:id="@+id/txt_time_stop"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -30,7 +30,7 @@
         android:layout_above="@+id/txt_time_stop"
         android:background="@drawable/stopbut" />
 
-    <com.Tirax.RF.TextFont
+    <com.Tirax.Plasma.TextFont
         android:id="@+id/txt_stop_power"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

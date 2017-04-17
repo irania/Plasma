@@ -27,7 +27,7 @@
 
 
 
-    <com.Tirax.RF.TextFont
+    <com.Tirax.Plasma.TextFont
         android:id="@+id/txt_start_autoMode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -39,7 +39,7 @@
         android:layout_alignLeft="@+id/btn_start"
         android:layout_alignStart="@+id/btn_start" />
 
-    <com.Tirax.RF.TextFont
+    <com.Tirax.Plasma.TextFont
         android:id="@+id/txt_power_start"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

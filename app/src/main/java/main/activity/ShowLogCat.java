@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-import com.Tirax.RF.MyActivity;
+import com.Tirax.Plasma.MyActivity;
 import com.example.cryo.R;
 
 
@@ -13,7 +13,6 @@ import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.TextView;
 
   public class ShowLogCat extends MyActivity implements View.OnClickListener {

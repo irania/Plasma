@@ -9,11 +9,9 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
-import com.Tirax.RF.MyActivity;
-import com.Tirax.RF.Storage.Pages;
+import com.Tirax.Plasma.MyActivity;
+import com.Tirax.Plasma.Storage.Pages;
 import com.example.cryo.*;
-
-import main.activity.StartActivity;
 
 
 public class AutoActivity extends MyActivity implements OnClickListener {

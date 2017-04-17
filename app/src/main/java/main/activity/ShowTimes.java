@@ -8,10 +8,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.Tirax.RF.Enums.SecurityType;
-import com.Tirax.RF.MyActivity;
-import com.Tirax.RF.SecurityFile;
-import com.Tirax.RF.SharedPrefrences;
+import com.Tirax.Plasma.Enums.SecurityType;
+import com.Tirax.Plasma.MyActivity;
+import com.Tirax.Plasma.SecurityFile;
 import com.example.cryo.R;
 
 public class ShowTimes extends MyActivity implements View.OnClickListener {

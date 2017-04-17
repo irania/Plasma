@@ -3,7 +3,6 @@ package main.activity;
 
 
 import android.content.Intent;
-import android.graphics.pdf.PdfDocument;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -13,10 +12,10 @@ import android.widget.ImageButton;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-import com.Tirax.RF.*;
-import com.Tirax.RF.Compiler;
-import com.Tirax.RF.Storage.Pages;
-import com.Tirax.RF.Storage.Values;
+import com.Tirax.Plasma.*;
+import com.Tirax.Plasma.Compiler;
+import com.Tirax.Plasma.Storage.Pages;
+import com.Tirax.Plasma.Storage.Values;
 import com.example.cryo.*;
 
 

@@ -5,8 +5,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.Tirax.RF.Enums.TestType;
-import com.Tirax.RF.MyActivity;
+import com.Tirax.Plasma.Enums.TestType;
+import com.Tirax.Plasma.MyActivity;
 import com.example.cryo.R;
 
 /**

@@ -4,7 +4,6 @@ package main.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Debug;
 import android.os.Handler;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -14,12 +13,9 @@ import android.widget.ImageButton;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-import com.Tirax.RF.*;
-import com.Tirax.RF.Compiler;
-import com.Tirax.RF.Enums.SecurityType;
-import com.Tirax.RF.SerialPortsHardware.DataProvider;
-import com.Tirax.RF.SharedPrefrences;
-import com.Tirax.RF.Storage.Values;
+import com.Tirax.Plasma.*;
+import com.Tirax.Plasma.Enums.SecurityType;
+import com.Tirax.Plasma.SerialPortsHardware.DataProvider;
 import com.example.cryo.*;
 import com.friendlyarm.AndroidSDK.HardwareControler;
 

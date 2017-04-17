@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.cryo"
-    android:versionCode="1"
-    android:versionName="1.0">
+    package="com.tirax.plasma"
+    android:versionCode="3"
+    android:versionName="3.0">
 
     <uses-sdk
         android:minSdkVersion="11"
@@ -27,7 +27,7 @@
         android:label="@string/app_name"
         android:theme="@style/NoTitle">
         <receiver
-            android:name="com.Tirax.RF.StartMyActivityAtBootReceiver"
+            android:name="com.Tirax.Plasma.StartMyActivityAtBootReceiver"
             android:enabled="true"
             android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
             <intent-filter>
