@@ -9,15 +9,20 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-import com.Tirax.Plasma.*;
-import com.Tirax.Plasma.Enums.SecurityType;
-import com.Tirax.Plasma.SerialPortsHardware.DataProvider;
-import com.example.cryo.*;
+import com.Tirax.plasma.*;
+import com.Tirax.plasma.Enums.SecurityType;
+import com.Tirax.plasma.SerialPortsHardware.DataProvider;
+
+import com.Tirax.plasma.Storage.Values;
 import com.friendlyarm.AndroidSDK.HardwareControler;
+import com.Tirax.plasma.R;
+
+import main.activity.Auto.AutoActivity;
 
 public class StopActivity extends MyActivity implements OnClickListener {
 
@@ -111,8 +116,13 @@ public class StopActivity extends MyActivity implements OnClickListener {
 		stopButton =(ImageButton) findViewById(R.id.btn_stop);
 		stopButton.setOnClickListener(this);
 
+		Button incrPower = (Button) findViewById(R.id.btn_stop_power_up);
+		Button decrPower = (Button) findViewById(R.id.btn_stop_power_down);
+		Button back=(Button) findViewById(R.id.btn_stop_back);
 
-
+		back.setOnClickListener(this);
+		incrPower.setOnClickListener(this);
+		decrPower.setOnClickListener(this);
 
 		ImageButton settingsBtn =(ImageButton) findViewById(R.id.btn_stop_settings);
 		settingsBtn.setOnClickListener(this);
@@ -138,18 +148,47 @@ public class StopActivity extends MyActivity implements OnClickListener {
 
 	}
 
+	private void addSeekbarPower(int value) {
 
+		seekBarProgress += value;
+		seekBarProgress = (seekBarProgress/5)*5;
+		if(seekBarProgress> 100 || seekBarProgress<5)
+			seekBarProgress -=value;
+		SeekBar seekBar = (SeekBar) findViewById(R.id.seekBar);
+		seekBar.setProgress(seekBarProgress);
+		power.setText(seekBarProgress + "%");
+		DataProvider.setRegister(DataProvider.RPWR, (char) (seekBarProgress * op.powerMultiplyer));
+
+	}
 	@Override
 	public void onClick(View arg0) {
 		//starting corresponding intents
 		if(PedalWasActive<=0) {
 			if (arg0.getId() == R.id.btn_stop) {
+
+				Values.power = seekBarProgress;
 				finishFunction();
+				Intent int_auto = new Intent(StopActivity.this, StartActivity.class);
+				startActivity(int_auto);
 			}
 
 			if (arg0.getId() == R.id.btn_stop_settings) {
 				Intent int_settings = new Intent(StopActivity.this, EnterPassActivity.class);
 				startActivity(int_settings);
+			}
+
+			if(arg0.getId() == R.id.btn_stop_power_up){
+				addSeekbarPower(5);
+
+			}
+
+			if(arg0.getId() == R.id.btn_stop_power_down){
+				addSeekbarPower(-5);
+
+			}
+			if (arg0.getId()==R.id.btn_stop_back){
+				finishFunction();
+
 			}
 			overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
 		}

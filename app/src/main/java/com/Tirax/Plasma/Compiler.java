@@ -1,8 +1,8 @@
-package com.Tirax.Plasma;
+package com.Tirax.plasma;
 
 import android.util.Log;
 
-import com.Tirax.Plasma.SerialPortsHardware.DataProvider;
+import com.Tirax.plasma.SerialPortsHardware.DataProvider;
 
 /**
  * Created by a.irani on 11/1/2016.

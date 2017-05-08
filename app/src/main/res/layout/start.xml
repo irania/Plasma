@@ -3,7 +3,7 @@
     android:id="@+id/RelativeLayout1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/start"
+    android:background="@drawable/startr"
     android:orientation="vertical" >
 
     <Button
@@ -27,7 +27,7 @@
 
 
 
-    <com.Tirax.Plasma.TextFont
+    <com.Tirax.plasma.TextFont
         android:id="@+id/txt_start_autoMode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -39,7 +39,7 @@
         android:layout_alignLeft="@+id/btn_start"
         android:layout_alignStart="@+id/btn_start" />
 
-    <com.Tirax.Plasma.TextFont
+    <com.Tirax.plasma.TextFont
         android:id="@+id/txt_power_start"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -63,7 +63,7 @@
 
     <SeekBar
         android:id="@+id/seekBar"
-        android:layout_width="420dp"
+        android:layout_width="350dp"
         android:layout_height="80dp"
         android:progressDrawable="@drawable/seekbar_layout"
         android:progress="0"
@@ -71,8 +71,30 @@
         android:max="100"
         android:thumb="@drawable/seekbarthumb"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_toRightOf="@+id/btn_start_power_down"
+        android:layout_toEndOf="@+id/btn_start_power_down"
+        android:layout_marginLeft="25dp" />
 
+
+    <Button
+        android:id="@+id/btn_start_power_down"
+        android:layout_width="90dp"
+        android:layout_height="100dp"
+        android:alpha="0"
+        android:text="Button"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/txt_power_start"
+        android:layout_alignStart="@+id/txt_power_start" />
+
+    <Button
+        android:id="@+id/btn_start_power_up"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:alpha="0"
+        android:text="Button"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/seekBar"
+        android:layout_toEndOf="@+id/seekBar" />
 
 
 </RelativeLayout>

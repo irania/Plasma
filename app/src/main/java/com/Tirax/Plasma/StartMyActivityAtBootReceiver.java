@@ -1,4 +1,4 @@
-package com.Tirax.Plasma;
+package com.Tirax.plasma;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;

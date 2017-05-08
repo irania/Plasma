@@ -1,7 +1,7 @@
-package com.Tirax.Plasma.Test;
+package com.Tirax.plasma.Test;
 
-import com.Tirax.Plasma.SerialPortsHardware.ReadWriteSerialPort;
-import com.Tirax.Plasma.SerialPortsHardware.SerialPort;
+import com.Tirax.plasma.SerialPortsHardware.ReadWriteSerialPort;
+import com.Tirax.plasma.SerialPortsHardware.SerialPort;
 
 /**
  * Created by MHSaadatfar on 4/14/2017.

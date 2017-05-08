@@ -1,6 +1,6 @@
-package com.Tirax.Plasma.Options;
+package com.Tirax.plasma.Options;
 
-import com.Tirax.Plasma.Mode;
+import com.Tirax.plasma.Mode;
 
 /**
  * Created by Lenovo on 8/3/2016.

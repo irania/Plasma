@@ -1,4 +1,4 @@
-package com.Tirax.Plasma.Enums;
+package com.Tirax.plasma.Enums;
 
 /**
  * Created by Emertat on 3/10/2017.

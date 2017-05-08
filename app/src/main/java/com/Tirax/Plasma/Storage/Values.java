@@ -1,6 +1,6 @@
-package com.Tirax.Plasma.Storage;
+package com.Tirax.plasma.Storage;
 
-import com.Tirax.Plasma.Enums.Types;
+import com.Tirax.plasma.Enums.Types;
 
 /**
  * Created by a.irani on 11/1/2016.

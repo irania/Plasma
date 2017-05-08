@@ -1,8 +1,8 @@
-package com.Tirax.Plasma;
+package com.Tirax.plasma;
 
 import android.util.Log;
 
-import com.Tirax.Plasma.Enums.SecurityType;
+import com.Tirax.plasma.Enums.SecurityType;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;

@@ -10,11 +10,11 @@ import android.widget.TextView;
 
 import com.Tirax.plasma.Enums.SecurityType;
 import com.Tirax.plasma.MyActivity;
-import com.Tirax.plasma.SecurityFile;
 import com.Tirax.plasma.R;
+import com.Tirax.plasma.SecurityFile;
 
 
-public class ShowTimes extends MyActivity implements View.OnClickListener {
+public class ShowSerialNumber extends MyActivity implements View.OnClickListener {
     int backpressed=0;
 	private Handler UIHandler = new Handler();
 	public static boolean finished=true;
@@ -45,13 +45,13 @@ public class ShowTimes extends MyActivity implements View.OnClickListener {
 		         
 
 		         tv.setMovementMethod(new ScrollingMovementMethod());
-				int t = 0;
+
 				try {
-					t = Integer.parseInt(SecurityFile.load(SecurityType.TIME));
+					tv.setText("SERIAL NUMBER: "+ Integer.parseInt(SecurityFile.load(SecurityType.SERIAL)));
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-				tv.setText("time: "+t);
+
 				if(!finished)
 						UIHandler.postDelayed(UIreportsRunnable, 300);
 			}

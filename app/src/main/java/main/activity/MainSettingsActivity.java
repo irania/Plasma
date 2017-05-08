@@ -1,13 +1,13 @@
 package main.activity;
-
+import com.Tirax.plasma.R;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.Tirax.Plasma.Enums.TestType;
-import com.Tirax.Plasma.MyActivity;
-import com.example.cryo.R;
+import com.Tirax.plasma.Enums.TestType;
+import com.Tirax.plasma.MyActivity;
+
 
 /**
  * Created by a.irani on 12/15/2016.
@@ -24,6 +24,7 @@ public class MainSettingsActivity extends MyActivity implements  View.OnClickLis
         Button time = (Button)findViewById(R.id.btn_settings_time);
         Button serial_brief_test = (Button)findViewById(R.id.btn_settings_serialtext);
         Button power0t100_test = (Button)findViewById(R.id.btn_settings_power0t100);
+        Button serial = (Button)findViewById(R.id.btn_settings_serial);
         //Button serial = (Button)findViewById(R.id.btn_settings_serial);
 
         back.setOnClickListener(this);
@@ -31,6 +32,8 @@ public class MainSettingsActivity extends MyActivity implements  View.OnClickLis
         log.setOnClickListener(this);
         serial_brief_test.setOnClickListener(this);
         power0t100_test.setOnClickListener(this);
+        serial.setOnClickListener(this);
+
 
 
         /*try {
@@ -80,6 +83,13 @@ public class MainSettingsActivity extends MyActivity implements  View.OnClickLis
             TestResult.test = TestType.SERIAL_BRIEF;
             startActivity(int_settings);
         }
+
+        if (v.getId()==R.id.btn_settings_serial){
+            Intent int_settings = new Intent(MainSettingsActivity.this,ShowSerialNumber.class);
+            startActivity(int_settings);
+        }
+
+
 
     }
 }

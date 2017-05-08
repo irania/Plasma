@@ -1,4 +1,4 @@
-package com.Tirax.Plasma;
+package com.Tirax.plasma;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -6,7 +6,8 @@ import android.graphics.Canvas;
 import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.widget.TextView;
-import com.example.cryo.*;
+import com.Tirax.plasma.R;
+
 
 public class TextFont extends TextView {
     public TextFont(Context context) {

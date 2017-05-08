@@ -34,7 +34,7 @@
         android:alpha="0"
         android:text="Button" />
 
-    <com.Tirax.Plasma.TextFont
+    <com.Tirax.plasma.TextFont
         android:id="@+id/txt_power"
         android:layout_width="150px"
         android:layout_height="40px"
@@ -65,7 +65,7 @@
         android:alpha="0"
         android:text="Button" />
 
-    <com.Tirax.Plasma.TextFont
+    <com.Tirax.plasma.TextFont
         android:id="@+id/txt_time"
         android:layout_width="150px"
         android:layout_height="30px"

@@ -12,14 +12,14 @@ import android.widget.ImageButton;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-import com.Tirax.Plasma.*;
-import com.Tirax.Plasma.Compiler;
-import com.Tirax.Plasma.Storage.Pages;
-import com.Tirax.Plasma.Storage.Values;
-import com.example.cryo.*;
+import com.Tirax.plasma.*;
+import com.Tirax.plasma.Compiler;
+import com.Tirax.plasma.Storage.Pages;
+import com.Tirax.plasma.Storage.Values;
+import com.Tirax.plasma.R;
 
 
-	public class StartActivity extends MyActivity implements OnClickListener {
+public class StartActivity extends MyActivity implements OnClickListener {
 
 	public int seekBarProgress;
 	public static int time=0;
@@ -54,12 +54,8 @@ import com.example.cryo.*;
 	}
 
 		private void setPowerValue() {
-			if(Pages.step == Pages.LOW)
-				powerValue=5;
-			else if(Pages.step == Pages.MEDIUM)
-				powerValue =50;
-			else
-				powerValue=75;
+
+			powerValue = Values.power;
 			seekBarProgress=powerValue;
 		}
 
@@ -98,17 +94,21 @@ import com.example.cryo.*;
 
 		private void declareButtons() {
 		//declaring main menu buttons
-		Button auto=(Button) findViewById(R.id.btn_start);
-		Button back=(Button) findViewById(R.id.btn_back_start);
-		ImageButton settingsBtn =(ImageButton) findViewById(R.id.btn_start_settings);
+			Button auto=(Button) findViewById(R.id.btn_start);
+			Button back=(Button) findViewById(R.id.btn_back_start);
+			Button incrPower = (Button) findViewById(R.id.btn_start_power_up);
+			Button decrPower = (Button) findViewById(R.id.btn_start_power_down);
+			ImageButton settingsBtn =(ImageButton) findViewById(R.id.btn_start_settings);
 
-		//declaring onclicklistener functions
-		settingsBtn.setOnClickListener(this);
+			//declaring onclicklistener functions
+			settingsBtn.setOnClickListener(this);
 
+			incrPower.setOnClickListener(this);
+			decrPower.setOnClickListener(this);
 
-		auto.setOnClickListener(this);
-		back.setOnClickListener(this);
-	}
+			auto.setOnClickListener(this);
+			back.setOnClickListener(this);
+		}
 
 	@Override
 	public void onClick(View arg0) {
@@ -134,10 +134,31 @@ import com.example.cryo.*;
 			Intent int_settings = new Intent(StartActivity.this,EnterPassActivity.class);
 			startActivity(int_settings);
 		}
+
+		if(arg0.getId() == R.id.btn_start_power_up){
+			addSeekbarPower(5);
+
+		}
+
+		if(arg0.getId() == R.id.btn_start_power_down){
+			addSeekbarPower(-5);
+
+		}
 		overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
 				
 	}
-	
+
+	private void addSeekbarPower(int value) {
+
+		seekBarProgress += value;
+		seekBarProgress = (seekBarProgress/5)*5;
+		if(seekBarProgress> 100 || seekBarProgress<5)
+			seekBarProgress -=value;
+		SeekBar seekBar = (SeekBar) findViewById(R.id.seekBar);
+		seekBar.setProgress(seekBarProgress);
+		power.setText(seekBarProgress + "%");
+	}
+
 	public void sendStartCommunicationData(){
 		try{
 

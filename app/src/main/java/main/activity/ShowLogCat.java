@@ -4,8 +4,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-import com.Tirax.Plasma.MyActivity;
-import com.example.cryo.R;
+import com.Tirax.plasma.MyActivity;
+import com.Tirax.plasma.R;
 
 
 import android.os.Bundle;

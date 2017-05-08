@@ -1,4 +1,4 @@
-package com.Tirax.Plasma.Enums;
+package com.Tirax.plasma.Enums;
 
 /**
  * Created by a.irani on 11/1/2016.

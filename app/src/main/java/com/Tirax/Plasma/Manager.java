@@ -1,19 +1,19 @@
-package com.Tirax.Plasma;
+package com.Tirax.plasma;
 
-import com.Tirax.Plasma.Options.Auto.Acne.AcneHighOption;
-import com.Tirax.Plasma.Options.Auto.Acne.AcneLowOption;
-import com.Tirax.Plasma.Options.Auto.Acne.AcneMediumOption;
-import com.Tirax.Plasma.Options.Auto.Blepharo.BlepharoHighOption;
-import com.Tirax.Plasma.Options.Auto.Blepharo.BlepharoLowOption;
-import com.Tirax.Plasma.Options.Auto.Blepharo.BlepharoMediumOption;
-import com.Tirax.Plasma.Options.Auto.Mole.MoleHighOption;
-import com.Tirax.Plasma.Options.Auto.Mole.MoleLowOption;
-import com.Tirax.Plasma.Options.Auto.Mole.MoleMediumOption;
-import com.Tirax.Plasma.Options.Auto.Scar.ScarHighOption;
-import com.Tirax.Plasma.Options.Auto.Scar.ScarLowOption;
-import com.Tirax.Plasma.Options.Auto.Scar.ScarMediumOption;
-import com.Tirax.Plasma.Options.ManualOption;
-import com.Tirax.Plasma.Storage.Pages;
+import com.Tirax.plasma.Options.Auto.Acne.AcneHighOption;
+import com.Tirax.plasma.Options.Auto.Acne.AcneLowOption;
+import com.Tirax.plasma.Options.Auto.Acne.AcneMediumOption;
+import com.Tirax.plasma.Options.Auto.Blepharo.BlepharoHighOption;
+import com.Tirax.plasma.Options.Auto.Blepharo.BlepharoLowOption;
+import com.Tirax.plasma.Options.Auto.Blepharo.BlepharoMediumOption;
+import com.Tirax.plasma.Options.Auto.Mole.MoleHighOption;
+import com.Tirax.plasma.Options.Auto.Mole.MoleLowOption;
+import com.Tirax.plasma.Options.Auto.Mole.MoleMediumOption;
+import com.Tirax.plasma.Options.Auto.Scar.ScarHighOption;
+import com.Tirax.plasma.Options.Auto.Scar.ScarLowOption;
+import com.Tirax.plasma.Options.Auto.Scar.ScarMediumOption;
+import com.Tirax.plasma.Options.ManualOption;
+import com.Tirax.plasma.Storage.Pages;
 
 /**
  * Created by a.irani on 11/1/2016.

@@ -1,4 +1,4 @@
-package com.Tirax.Plasma;
+package com.Tirax.plasma;
 
 /**
  * Created by a.irani on 11/11/2016.

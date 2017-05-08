@@ -1,4 +1,4 @@
-package com.Tirax.Plasma.SerialPortsHardware;
+package com.Tirax.plasma.SerialPortsHardware;
 
 import java.util.ArrayList;
 
@@ -6,8 +6,8 @@ import android.os.AsyncTask;
 import android.os.Handler;
 import android.util.Log;
 
-import com.Tirax.Plasma.LogCatEnabler;
-import com.Tirax.Plasma.SharedPrefrences;
+import com.Tirax.plasma.LogCatEnabler;
+import com.Tirax.plasma.SharedPrefrences;
 
 public class ReadWriteSerialPort extends AsyncTask<Void, Void, Void>{
 

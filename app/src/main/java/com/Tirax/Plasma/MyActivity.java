@@ -1,4 +1,4 @@
-package com.Tirax.Plasma;
+package com.Tirax.plasma;
 
 import android.app.Activity;
 import android.os.Bundle;

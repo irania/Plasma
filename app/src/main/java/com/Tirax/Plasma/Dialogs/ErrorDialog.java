@@ -1,4 +1,4 @@
-package com.Tirax.Plasma.Dialogs;
+package com.Tirax.plasma.Dialogs;
 
 import android.app.Activity;
 import android.app.Dialog;
@@ -8,7 +8,8 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.cryo.R;
+import com.Tirax.plasma.R;
+
 
 
 

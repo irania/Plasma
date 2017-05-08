@@ -1,6 +1,6 @@
-package com.Tirax.Plasma.Options.Auto.Scar;
+package com.Tirax.plasma.Options.Auto.Scar;
 
-import com.Tirax.Plasma.Mode;
+import com.Tirax.plasma.Mode;
 
 /**
  * Created by Emertat on 2/16/2017.
@@ -10,7 +10,7 @@ public class ScarLowOption extends Mode {
         public ScarLowOption(){
             super();
             powerMultiplyer =1;
-            autoMode ="scar low";
+            autoMode ="scar";
             
         }
 

@@ -1,4 +1,4 @@
-package com.Tirax.Plasma;
+package com.Tirax.plasma;
 
 public class Tools {
 	public static char byteToChar(byte i){

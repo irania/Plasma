@@ -1,4 +1,4 @@
-package com.Tirax.Plasma.Errors;
+package com.Tirax.plasma.Errors;
 
 
 

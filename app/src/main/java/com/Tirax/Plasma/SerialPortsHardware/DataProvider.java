@@ -1,8 +1,8 @@
-package com.Tirax.Plasma.SerialPortsHardware;
+package com.Tirax.plasma.SerialPortsHardware;
 
-import com.Tirax.Plasma.Enums.VersionTypes;
-import com.Tirax.Plasma.Errors.*;
-import com.Tirax.Plasma.Errors.Error;
+import com.Tirax.plasma.Enums.VersionTypes;
+import com.Tirax.plasma.Errors.*;
+import com.Tirax.plasma.Errors.Error;
 
 import java.util.ArrayList;
 
@@ -46,7 +46,7 @@ public class DataProvider extends ReadWriteSerialPort {
 
 	public static char RMKY_PAUSE= 0;//Cnt/Pulse
 
-	public static ArrayList<com.Tirax.Plasma.Errors.Error> errors;
+	public static ArrayList<com.Tirax.plasma.Errors.Error> errors;
 	private static boolean beforeErr=false;
 
 	//set registers

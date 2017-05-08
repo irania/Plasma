@@ -1,10 +1,10 @@
-package com.Tirax.Plasma.SerialPortsHardware;
+package com.Tirax.plasma.SerialPortsHardware;
 
 
 import android.util.Log;
 
-import com.Tirax.Plasma.LogCatEnabler;
-import com.Tirax.Plasma.Tools;
+import com.Tirax.plasma.LogCatEnabler;
+import com.Tirax.plasma.Tools;
 import com.friendlyarm.AndroidSDK.HardwareControler;
 
 public class SerialPort {

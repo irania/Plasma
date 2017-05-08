@@ -6,7 +6,7 @@
     android:background="@drawable/summary_background"
     android:orientation="vertical" >
 
-    <com.Tirax.Plasma.TextFont
+    <com.Tirax.plasma.TextFont
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

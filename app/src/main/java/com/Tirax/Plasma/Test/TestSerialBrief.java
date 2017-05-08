@@ -1,7 +1,7 @@
-package com.Tirax.Plasma.Test;
+package com.Tirax.plasma.Test;
 
-import com.Tirax.Plasma.SerialPortsHardware.DataProvider;
-import com.Tirax.Plasma.SerialPortsHardware.SerialComHelper;
+import com.Tirax.plasma.SerialPortsHardware.DataProvider;
+import com.Tirax.plasma.SerialPortsHardware.SerialComHelper;
 
 import main.activity.TestResult;
 

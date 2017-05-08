@@ -1,4 +1,4 @@
-package com.Tirax.Plasma.SerialPortsHardware;
+package com.Tirax.plasma.SerialPortsHardware;
 
 /**
  * Created by MHSaadatfar on 4/14/2017.

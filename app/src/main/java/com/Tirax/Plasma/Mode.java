@@ -1,6 +1,6 @@
-package com.Tirax.Plasma;
+package com.Tirax.plasma;
 
-import com.Tirax.Plasma.Storage.Values;
+import com.Tirax.plasma.Storage.Values;
 
 /**
  * Mother of type of diffrent options in program

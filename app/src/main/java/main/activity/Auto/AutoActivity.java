@@ -9,9 +9,12 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
-import com.Tirax.Plasma.MyActivity;
-import com.Tirax.Plasma.Storage.Pages;
-import com.example.cryo.*;
+import com.Tirax.plasma.MyActivity;
+import com.Tirax.plasma.Storage.Pages;
+import com.Tirax.plasma.R;
+import com.Tirax.plasma.Storage.Values;
+
+import main.activity.StartActivity;
 
 
 public class AutoActivity extends MyActivity implements OnClickListener {
@@ -44,8 +47,9 @@ public class AutoActivity extends MyActivity implements OnClickListener {
     public void onClick(View arg0) {
 
         //declaring intents
-        Intent int_start=new Intent(AutoActivity.this,SelectStep.class);
-        //Pages.step = Pages.LOW;
+        Intent int_start=new Intent(AutoActivity.this,StartActivity.class);
+        Pages.step = Pages.LOW;
+        Values.power = 5;
 
         //starting corresponding intents
         if (arg0.getId()==R.id.btn_acne){
