@@ -12,6 +12,7 @@ import com.Tirax.plasma.SerialPortsHardware.DataProvider;
 import com.Tirax.plasma.Test.TestRun0t100;
 import com.Tirax.plasma.Test.TestSerialBrief;
 import com.Tirax.plasma.R;
+import com.Tirax.plasma.Test.TestShower;
 
 
 public class TestResult extends MyActivity implements View.OnClickListener {
@@ -73,6 +74,12 @@ public class TestResult extends MyActivity implements View.OnClickListener {
                     case POWER0T100:{
                         TestRun0t100 tsb = new TestRun0t100();
                         TestResult.log_header="Power 0 -> 100 Test Result:\n";
+                        tsb.Run();
+                        break;
+                    }
+                    case SHOWER: {
+                        TestShower tsb = new TestShower();
+                        TestResult.log_header="Shower Test Result:\n";
                         tsb.Run();
                         break;
                     }

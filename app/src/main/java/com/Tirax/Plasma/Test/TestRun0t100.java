@@ -10,12 +10,7 @@ import main.activity.TestResult;
 public class TestRun0t100 {
     public void Run(){
         TestResult.setLog("Ready...");
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        for (char i=0;i<=20;i++) {
+        for (char i=1;i<=20;i++) {
             while (DataProvider.getPedalisActive()==true)
                 if (Thread.interrupted()) return;
             char p = (char) (i*5);

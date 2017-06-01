@@ -24,6 +24,7 @@ public class MainSettingsActivity extends MyActivity implements  View.OnClickLis
         Button time = (Button)findViewById(R.id.btn_settings_time);
         Button serial_brief_test = (Button)findViewById(R.id.btn_settings_serialtext);
         Button power0t100_test = (Button)findViewById(R.id.btn_settings_power0t100);
+        Button shower_test = (Button)findViewById(R.id.btn_settings_showertest);
         Button serial = (Button)findViewById(R.id.btn_settings_serial);
         //Button serial = (Button)findViewById(R.id.btn_settings_serial);
 
@@ -33,7 +34,7 @@ public class MainSettingsActivity extends MyActivity implements  View.OnClickLis
         serial_brief_test.setOnClickListener(this);
         power0t100_test.setOnClickListener(this);
         serial.setOnClickListener(this);
-
+        shower_test.setOnClickListener(this);
 
 
         /*try {
@@ -84,12 +85,16 @@ public class MainSettingsActivity extends MyActivity implements  View.OnClickLis
             startActivity(int_settings);
         }
 
+        if (v.getId()==R.id.btn_settings_showertest){
+            Intent int_settings = new Intent(MainSettingsActivity.this,TestResult.class);
+            TestResult.test = TestType.SHOWER;
+            startActivity(int_settings);
+        }
+
         if (v.getId()==R.id.btn_settings_serial){
             Intent int_settings = new Intent(MainSettingsActivity.this,ShowSerialNumber.class);
             startActivity(int_settings);
         }
-
-
 
     }
 }
