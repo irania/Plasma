@@ -46,6 +46,8 @@ public class DataProvider extends ReadWriteSerialPort {
 
 	public static char RMKY_PAUSE= 0;//Cnt/Pulse
 
+	public static char MTB1_SPW=0;
+
 	public static ArrayList<com.Tirax.plasma.Errors.Error> errors;
 	private static boolean beforeErr=false;
 
