@@ -35,6 +35,7 @@ public class StopActivity extends MyActivity implements OnClickListener {
 	public static int firstTime;
 
 	private TextView power;
+	private TextView powerReal;
 	private TextView timetext;
 	private TextView vacuum;
 
@@ -51,6 +52,7 @@ public class StopActivity extends MyActivity implements OnClickListener {
 
 	private Mode op;
 
+	private int powerBase = DataProvider.powerBase;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -94,6 +96,7 @@ public class StopActivity extends MyActivity implements OnClickListener {
 				} else
 					seekBarProgress = progress;
 				power.setText(seekBarProgress + "%");
+				powerReal.setText(seekBarProgress*op.powerMultiplyer*powerBase + " pulse/sec");
 
 
 			}
@@ -105,6 +108,7 @@ public class StopActivity extends MyActivity implements OnClickListener {
 
 			public void onStopTrackingTouch(SeekBar seekBar) {
 				power.setText(seekBarProgress + "%");
+				powerReal.setText(seekBarProgress*op.powerMultiplyer*powerBase + " pulse/sec");
 				DataProvider.setRegister(DataProvider.RPWR, (char) (seekBarProgress * op.powerMultiplyer));
 
 			}
@@ -132,12 +136,14 @@ public class StopActivity extends MyActivity implements OnClickListener {
 	private void initialTextViews() {
 		//read temp datas and show
 		power = (TextView) findViewById(R.id.txt_stop_power);
+		powerReal = (TextView) findViewById(R.id.txt_stop_powerEqual);
 		timetext = (TextView) findViewById(R.id.txt_time_stop);
 
 
 		op = Manager.getType();
 
 		power.setText(op.power + "%");
+		powerReal.setText(op.power*op.powerMultiplyer*powerBase + " pulse/sec");
 
 		powerValue=op.power;
 
@@ -157,6 +163,7 @@ public class StopActivity extends MyActivity implements OnClickListener {
 		SeekBar seekBar = (SeekBar) findViewById(R.id.seekBar);
 		seekBar.setProgress(seekBarProgress);
 		power.setText(seekBarProgress + "%");
+		powerReal.setText(seekBarProgress*op.powerMultiplyer*powerBase + " pulse/sec");
 		DataProvider.setRegister(DataProvider.RPWR, (char) (seekBarProgress * op.powerMultiplyer));
 
 	}

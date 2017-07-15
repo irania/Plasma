@@ -17,7 +17,6 @@ import android.widget.Button;
 
 import com.Tirax.plasma.Dialogs.ErrorDialog;
 import com.Tirax.plasma.Enums.SecurityType;
-import com.Tirax.plasma.License;
 import com.Tirax.plasma.LogCatEnabler;
 import com.Tirax.plasma.LogCatSaver;
 import com.Tirax.plasma.SecurityFile;
@@ -30,7 +29,6 @@ import com.Tirax.plasma.R;
 
 
 import main.activity.Auto.AutoActivity;
-import main.activity.Manual.PowerTimeActivity;
 
 public class MainActivity  extends Activity    implements OnClickListener{
 
@@ -182,11 +180,6 @@ public class MainActivity  extends Activity    implements OnClickListener{
 				startActivity(int_auto);
 			}
 
-			if (arg0.getId()==R.id.btn_manual){
-				Pages.auto_manual = Pages.MANUAL;
-				Intent int_manual=new Intent(MainActivity.this, PowerTimeActivity.class);
-				startActivity(int_manual);
-			}
 
 			if (arg0.getId()==R.id.btn_settings){
 				Intent int_settings = new Intent(MainActivity.this,EnterPassActivity.class);

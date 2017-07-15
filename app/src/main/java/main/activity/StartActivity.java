@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.Tirax.plasma.*;
 import com.Tirax.plasma.Compiler;
+import com.Tirax.plasma.SerialPortsHardware.DataProvider;
 import com.Tirax.plasma.Storage.Pages;
 import com.Tirax.plasma.Storage.Values;
 import com.Tirax.plasma.R;
@@ -24,8 +25,10 @@ public class StartActivity extends MyActivity implements OnClickListener {
 	public int seekBarProgress;
 	public static int time=0;
 	public static int frequency;
+	Mode op;
 		private int powerValue;
 		TextView power;
+		TextView powerReal;
 
 		@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -37,14 +40,16 @@ public class StartActivity extends MyActivity implements OnClickListener {
 		declareButtons();
 
 
-		Mode op = Manager.getType();
+		op = Manager.getType();
 		TextView mode_text = (TextView) findViewById(R.id.txt_start_autoMode);
 		mode_text.setText(op.autoMode );
 
 		setPowerValue();
 
 		power = (TextView) findViewById(R.id.txt_power_start);
+		powerReal = (TextView) findViewById(R.id.txt_start_powerEqual);
 		power.setText(powerValue + "%");
+		powerReal.setText(powerValue* DataProvider.powerBase*op.powerMultiplyer + " pulse/sec");
 
 
 		initialSeekBar();
@@ -85,6 +90,7 @@ public class StartActivity extends MyActivity implements OnClickListener {
 
 				public void onStopTrackingTouch(SeekBar seekBar) {
 					power.setText(seekBarProgress + "%");
+					powerReal.setText(seekBarProgress* DataProvider.powerBase*op.powerMultiplyer + " pulse/sec");
 
 
 				}
@@ -157,6 +163,8 @@ public class StartActivity extends MyActivity implements OnClickListener {
 		SeekBar seekBar = (SeekBar) findViewById(R.id.seekBar);
 		seekBar.setProgress(seekBarProgress);
 		power.setText(seekBarProgress + "%");
+		powerReal.setText(seekBarProgress* DataProvider.powerBase*op.powerMultiplyer + " pulse/sec");
+
 	}
 
 	public void sendStartCommunicationData(){

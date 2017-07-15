@@ -54,7 +54,6 @@
         <activity android:name="main.activity.ShowTimes" />
         <activity android:name="main.activity.ShowSerialNumber" />
         <activity android:name="main.activity.EnterSerialActivity" />
-        <activity android:name="main.activity.Manual.PowerTimeActivity" />
         <activity
             android:name="main.activity.EnterPassActivity"
             android:label="@string/title_activity_enter_pass" />

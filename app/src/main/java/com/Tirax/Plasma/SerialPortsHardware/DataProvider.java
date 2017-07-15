@@ -49,6 +49,7 @@ public class DataProvider extends ReadWriteSerialPort {
 	public static ArrayList<com.Tirax.plasma.Errors.Error> errors;
 	private static boolean beforeErr=false;
 
+	public static int powerBase = 25000;
 	//set registers
 
 	public static void initialize_errors(){
