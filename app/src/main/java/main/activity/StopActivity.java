@@ -53,6 +53,8 @@ public class StopActivity extends MyActivity implements OnClickListener {
 	private Mode op;
 
 	private int powerBase = DataProvider.powerBase;
+	private Integer pedalTime=0;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -96,7 +98,7 @@ public class StopActivity extends MyActivity implements OnClickListener {
 				} else
 					seekBarProgress = progress;
 				power.setText(seekBarProgress + "%");
-				powerReal.setText(seekBarProgress*op.powerMultiplyer*powerBase + " pulse/sec");
+				powerReal.setText((int)(seekBarProgress*op.powerMultiplyer*powerBase/100) + " pulse/sec");
 
 
 			}
@@ -108,7 +110,7 @@ public class StopActivity extends MyActivity implements OnClickListener {
 
 			public void onStopTrackingTouch(SeekBar seekBar) {
 				power.setText(seekBarProgress + "%");
-				powerReal.setText(seekBarProgress*op.powerMultiplyer*powerBase + " pulse/sec");
+				powerReal.setText((int)(seekBarProgress*op.powerMultiplyer*powerBase/100) + " pulse/sec");
 				DataProvider.setRegister(DataProvider.RPWR, (char) (seekBarProgress * op.powerMultiplyer));
 
 			}
@@ -142,8 +144,11 @@ public class StopActivity extends MyActivity implements OnClickListener {
 
 		op = Manager.getType();
 
+		TextView mode_text = (TextView) findViewById(R.id.txt_stop_autoMode);
+		mode_text.setText(op.autoMode);
+
 		power.setText(op.power + "%");
-		powerReal.setText(op.power*op.powerMultiplyer*powerBase + " pulse/sec");
+		powerReal.setText((int)(op.power*op.powerMultiplyer*powerBase/100) + " pulse/sec");
 
 		powerValue=op.power;
 
@@ -163,7 +168,7 @@ public class StopActivity extends MyActivity implements OnClickListener {
 		SeekBar seekBar = (SeekBar) findViewById(R.id.seekBar);
 		seekBar.setProgress(seekBarProgress);
 		power.setText(seekBarProgress + "%");
-		powerReal.setText(seekBarProgress*op.powerMultiplyer*powerBase + " pulse/sec");
+		powerReal.setText((int)(seekBarProgress*op.powerMultiplyer*powerBase/100) + " pulse/sec");
 		DataProvider.setRegister(DataProvider.RPWR, (char) (seekBarProgress * op.powerMultiplyer));
 
 	}
@@ -222,6 +227,7 @@ public class StopActivity extends MyActivity implements OnClickListener {
 		try {
 
 			SecurityFile.save(SecurityType.TIME, ( tryParse(SecurityFile.load(SecurityType.TIME))+ time)+"");
+			SecurityFile.save(SecurityType.PEDAL_TIME, ( tryParse(SecurityFile.load(SecurityType.PEDAL_TIME))+ pedalTime)+"");
 		} catch (Exception e) {
 
 			//TODO get a big error
@@ -288,6 +294,7 @@ public class StopActivity extends MyActivity implements OnClickListener {
 
 			if(DataProvider.getPedalisActive()){
 				PedalWasActive=100;
+				pedalTime++;
 
 			}
 			else{

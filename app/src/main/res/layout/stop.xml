@@ -35,30 +35,29 @@
         android:id="@+id/txt_stop_power"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="100dp"
-        android:layout_marginLeft="85dp"
         android:text="75%"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#fff"
         android:textSize="17dp"
-        android:layout_marginTop="30dp"
-        android:layout_alignTop="@+id/seekBar" />
+        android:layout_alignTop="@+id/txt_start_powerEqual"
+        android:layout_alignBottom="@+id/seekBar"
+        android:layout_marginLeft="215dp" />
 
 
     <com.Tirax.plasma.TextFont
         android:id="@+id/txt_stop_powerEqual"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="100dp"
-        android:layout_marginLeft="20dp"
         android:text="25000 pulse/sec"
-        android:gravity="center"
-        android:textAlignment="center"
+        android:gravity="right"
+        android:textAlignment="gravity"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#fff"
-        android:textSize="12dp"
-        android:layout_marginTop="54dp"
-        android:layout_alignTop="@+id/seekBar" />
+        android:textSize="17dp"
+        android:layout_alignBottom="@+id/seekBar"
+        android:layout_toLeftOf="@+id/btn_stop_power_up"
+        android:layout_toStartOf="@+id/btn_stop_power_up"
+        android:layout_marginRight="15dp" />
 
 
 
@@ -91,10 +90,11 @@
         android:thumbTintMode="multiply"
         android:max="100"
         android:thumb="@drawable/seekbarthumb"
-        android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/btn_stop_power_down"
-        android:layout_toEndOf="@+id/btn_stop_power_down"
-        android:layout_marginLeft="25dp" />
+        android:layout_alignBottom="@+id/btn_stop_power_down"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="200dp"
+        android:layout_marginBottom="10dp" />
 
     <Button
         android:id="@+id/btn_stop_back"
@@ -114,8 +114,19 @@
         android:alpha="0"
         android:text="Button"
         android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/txt_stop_power"
-        android:layout_alignStart="@+id/txt_stop_power" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="120dp"  />
+    <com.Tirax.plasma.TextFont
+        android:id="@+id/txt_stop_autoMode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="MONOPOLAR"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#fff"
+        android:textSize="17dp"
+        android:layout_alignBottom="@+id/btn_stop_settings"
+        android:layout_marginLeft="50dp" />
 
     <Button
         android:id="@+id/btn_stop_power_up"

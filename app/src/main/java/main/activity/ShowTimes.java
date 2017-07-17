@@ -46,12 +46,14 @@ public class ShowTimes extends MyActivity implements View.OnClickListener {
 
 		         tv.setMovementMethod(new ScrollingMovementMethod());
 				int t = 0;
+				int t2=0;
 				try {
 					t = Integer.parseInt(SecurityFile.load(SecurityType.TIME));
+					t2 = Integer.parseInt(SecurityFile.load(SecurityType.PEDAL_TIME));
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-				tv.setText("time: "+t);
+				tv.setText("time(min): "+t + " pedal time(ms): "+t2);
 				if(!finished)
 						UIHandler.postDelayed(UIreportsRunnable, 300);
 			}

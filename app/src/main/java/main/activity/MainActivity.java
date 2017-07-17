@@ -195,16 +195,24 @@ public class MainActivity  extends Activity    implements OnClickListener{
 		@Override
 		public void run() {
 			try {
-				if (DataProvider.isNotInError() && DataProvider.isError()) {
+				if (DataProvider.isNotInMicroError() && DataProvider.isMicroError()) {
 					if(LogCatEnabler.errorHappened)
-						Log.e("TIRAX", "i am in error micro");
+						Log.e("TIRAX", "i am in error micro"+ DataProvider.getMicroError());
 					ErrorDialog dlgAlertError = new ErrorDialog(nowActivity);
-					//dlgAlertError.show();
-					//dlgAlertError.textDia.setText("it is a bad error");
+					dlgAlertError.show();
+					dlgAlertError.textDia.setText("Error Number " + DataProvider.getMicroError());
+
+				}
+				if(DataProvider.isInUIError() && DataProvider.isUIError()){
+					if(LogCatEnabler.errorHappened)
+						Log.e("TIRAX", "i am in error ui"+ DataProvider.getUIError());
+					ErrorDialog dlgAlertError = new ErrorDialog(nowActivity);
+					dlgAlertError.show();
+					dlgAlertError.textDia.setText("Error Number " + DataProvider.getUIError());
 
 				}
 			}catch(Exception ex){
-				Log.e("TIRAX Error", "error showing error");
+				Log.e("TIRAX Error", "error showing error: "+ex.getMessage());
 			}
 
 

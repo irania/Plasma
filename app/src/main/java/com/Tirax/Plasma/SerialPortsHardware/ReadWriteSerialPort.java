@@ -36,7 +36,7 @@ public class ReadWriteSerialPort extends AsyncTask<Void, Void, Void>{
 	private static char waited_ack;
 	
 	private static int resendTimer = 0;
-	private static int resetTimer=100;
+	private static int resetTimer=30;
 	private Handler ResendRunnableHandler=new Handler();
 
 
@@ -138,7 +138,7 @@ public class ReadWriteSerialPort extends AsyncTask<Void, Void, Void>{
 					if(changedRegisters.size()>0)
 						changedRegisters.remove(0);
 					resendTimer= 0;
-					resetTimer =10;
+					resetTimer =30;
 
 
 					sendRegister();
@@ -232,18 +232,16 @@ public class ReadWriteSerialPort extends AsyncTask<Void, Void, Void>{
 
 
 			if(resendTimer==1) {
-				/*if (resetTimer == 1) {
-					if (LogCatEnabler.resetActivated) {
-						Log.e("RESET", "Acc does not recieved.");
-					}
-					ResetTask.resetSystem();
+				if (resetTimer == 1) {
+
+					registers.set(DataProvider.RUER,(char)1);
 				}
-				else {*/
+				else {
 
 
 					sendRegister();
-				//	resetTimer--;
-				//}
+					resetTimer--;
+				}
 			}
 			if(resendTimer>0)
 				resendTimer--;

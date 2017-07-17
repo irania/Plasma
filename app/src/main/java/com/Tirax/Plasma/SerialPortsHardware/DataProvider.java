@@ -49,9 +49,11 @@ public class DataProvider extends ReadWriteSerialPort {
 	public static char MTB1_SPW=0;
 
 	public static ArrayList<com.Tirax.plasma.Errors.Error> errors;
-	private static boolean beforeErr=false;
+	private static boolean beforeMicroErr =false;
+	private static boolean beforeUIErr= false;
 
 	public static int powerBase = 25000;
+
 	//set registers
 
 	public static void initialize_errors(){
@@ -64,30 +66,25 @@ public class DataProvider extends ReadWriteSerialPort {
 			setRegister(i,(char)0);
 		}
 	}
-	public static boolean isError() {
+	public static boolean isMicroError() {
 		if(getRegister(RMER)>0){
-			beforeErr = true;
+			beforeMicroErr = true;
 			return true;
 		}
 
-		beforeErr = false;
+		beforeMicroErr = false;
 		return false;
 	}
 
-	public static Error getError(){
+	public static String getMicroError(){
 		int error_num = getRegister(RMER);
-		for(int i=0;i<errors.size();i++){
-			if(errors.get(i).number==error_num){
-				return errors.get(i);
-			}
-		}
-		return null;
+		return (error_num+100)+"";
 	}
 
 
 
-	public static boolean isNotInError() {
-		return !beforeErr;
+	public static boolean isNotInMicroError() {
+		return !beforeMicroErr;
 	}
 
 
@@ -104,4 +101,22 @@ public class DataProvider extends ReadWriteSerialPort {
 	}
 
 
+	public static boolean isInUIError() {
+		return !beforeUIErr;
+	}
+
+	public static boolean isUIError() {
+		if(getRegister(RUER)>0){
+			beforeUIErr = true;
+			return true;
+		}
+
+		beforeUIErr = false;
+		return false;
+	}
+
+	public static String getUIError() {
+		int error_num = getRegister(RUER);
+		return (error_num+200)+"";
+	}
 }

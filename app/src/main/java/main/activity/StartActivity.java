@@ -42,14 +42,14 @@ public class StartActivity extends MyActivity implements OnClickListener {
 
 		op = Manager.getType();
 		TextView mode_text = (TextView) findViewById(R.id.txt_start_autoMode);
-		mode_text.setText(op.autoMode );
+		mode_text.setText(op.autoMode);
 
 		setPowerValue();
 
 		power = (TextView) findViewById(R.id.txt_power_start);
 		powerReal = (TextView) findViewById(R.id.txt_start_powerEqual);
 		power.setText(powerValue + "%");
-		powerReal.setText(powerValue* DataProvider.powerBase*op.powerMultiplyer + " pulse/sec");
+		powerReal.setText((int)(powerValue* DataProvider.powerBase*op.powerMultiplyer/100) + " pulse/sec");
 
 
 		initialSeekBar();
@@ -90,7 +90,7 @@ public class StartActivity extends MyActivity implements OnClickListener {
 
 				public void onStopTrackingTouch(SeekBar seekBar) {
 					power.setText(seekBarProgress + "%");
-					powerReal.setText(seekBarProgress* DataProvider.powerBase*op.powerMultiplyer + " pulse/sec");
+					powerReal.setText((int)(seekBarProgress* DataProvider.powerBase*op.powerMultiplyer/100) + " pulse/sec");
 
 
 				}
@@ -163,7 +163,7 @@ public class StartActivity extends MyActivity implements OnClickListener {
 		SeekBar seekBar = (SeekBar) findViewById(R.id.seekBar);
 		seekBar.setProgress(seekBarProgress);
 		power.setText(seekBarProgress + "%");
-		powerReal.setText(seekBarProgress* DataProvider.powerBase*op.powerMultiplyer + " pulse/sec");
+		powerReal.setText((int)(seekBarProgress* DataProvider.powerBase*op.powerMultiplyer/100) + " pulse/sec");
 
 	}
 

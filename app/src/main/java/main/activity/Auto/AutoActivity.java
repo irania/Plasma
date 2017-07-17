@@ -8,12 +8,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.Tirax.plasma.MyActivity;
 import com.Tirax.plasma.Storage.Pages;
 import com.Tirax.plasma.R;
 import com.Tirax.plasma.Storage.Values;
 
+import main.activity.EnterPassActivity;
 import main.activity.StartActivity;
 
 
@@ -31,6 +33,8 @@ public class AutoActivity extends MyActivity implements OnClickListener {
         Button blepharo=(Button) findViewById(R.id.btn_blepharoplasty);
         Button scar=(Button) findViewById(R.id.btn_scar);
         Button mole = (Button) findViewById(R.id.btn_mole);
+        ImageButton settingsBtn =(ImageButton) findViewById(R.id.btn_auto_settings);
+
 
 
         //declaring onclicklistener functions
@@ -38,6 +42,7 @@ public class AutoActivity extends MyActivity implements OnClickListener {
         blepharo.setOnClickListener(this);
         scar.setOnClickListener(this);
         mole.setOnClickListener(this);
+        settingsBtn.setOnClickListener(this);
 
 
 
@@ -72,7 +77,10 @@ public class AutoActivity extends MyActivity implements OnClickListener {
             startActivity(int_start);
         }
 
-
+        if (arg0.getId() == R.id.btn_auto_settings) {
+            Intent int_settings = new Intent(AutoActivity.this, EnterPassActivity.class);
+            startActivity(int_settings);
+        }
         overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
     }
 

@@ -35,6 +35,7 @@ public class MainSettingsActivity extends MyActivity implements  View.OnClickLis
         power0t100_test.setOnClickListener(this);
         serial.setOnClickListener(this);
         shower_test.setOnClickListener(this);
+        time.setOnClickListener(this);
 
 
         /*try {
