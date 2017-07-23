@@ -10,7 +10,7 @@
 
     <Button
         android:id="@+id/btn_scar"
-        android:layout_width="650dp"
+        android:layout_width="600dp"
         android:layout_height="120dp"
         android:layout_above="@+id/btn_man"
         android:layout_alignParentLeft="true"
@@ -43,7 +43,7 @@
 
     <Button
         android:id="@+id/btn_blepharoplasty"
-        android:layout_width="650dp"
+        android:layout_width="550dp"
         android:layout_height="180dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
@@ -56,9 +56,9 @@
         android:layout_height="200dp"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/btn_scar"
-        android:layout_toEndOf="@+id/btn_scar"
-        android:background="@drawable/hider"/>
+        android:background="@drawable/hider"
+        android:layout_toRightOf="@+id/btn_mole"
+        android:layout_toEndOf="@+id/btn_mole" />
 
     <ImageButton
         android:layout_width="40dp"

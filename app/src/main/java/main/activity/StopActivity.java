@@ -175,6 +175,8 @@ public class StopActivity extends MyActivity implements OnClickListener {
 	@Override
 	public void onClick(View arg0) {
 		//starting corresponding intents
+
+		Log.e("TIRAXDebug","----click on touch "+arg0.getId()+"pedal value "+PedalWasActive);
 		if(PedalWasActive<=0) {
 			if (arg0.getId() == R.id.btn_stop) {
 
@@ -293,7 +295,7 @@ public class StopActivity extends MyActivity implements OnClickListener {
 				powerRange.getLayoutParams().height = (10)*20;
 
 			if(DataProvider.getPedalisActive()){
-				PedalWasActive=100;
+				PedalWasActive=1;
 				pedalTime++;
 
 			}
