@@ -19,6 +19,8 @@ import com.Tirax.plasma.Storage.Pages;
 import com.Tirax.plasma.Storage.Values;
 import com.Tirax.plasma.R;
 
+import main.activity.Test.TesterActivity;
+
 
 public class StartActivity extends MyActivity implements OnClickListener {
 
@@ -54,11 +56,20 @@ public class StartActivity extends MyActivity implements OnClickListener {
 
 		initialSeekBar();
 
-			
+		goToCorrectPage();
 		
 	}
 
-		private void setPowerValue() {
+	private void goToCorrectPage() {
+		if (DataProvider.getPedalisActive()) {
+
+			Intent int_auto = new Intent(StartActivity.this, TesterActivity.class);
+			startActivity(int_auto);
+
+		}
+	}
+
+	private void setPowerValue() {
 
 			powerValue = Values.power;
 			seekBarProgress=powerValue;

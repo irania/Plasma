@@ -29,6 +29,8 @@ import com.Tirax.plasma.R;
 
 
 import main.activity.Auto.AutoActivity;
+import main.activity.Test.TestResult;
+import main.activity.Test.TesterActivity;
 
 public class MainActivity  extends Activity    implements OnClickListener{
 
@@ -67,39 +69,34 @@ public class MainActivity  extends Activity    implements OnClickListener{
 			 //TODO licence
 			 SecurityFile.generatePrivateKey();
 
+			 goToCorrectPage();
 
-			 Pages.auto_manual = Pages.AUTO;
-
-			 //TODO licence
-			 String serial  = SecurityFile.load(SecurityType.SERIAL);
-			 if(serial!=null){
-			 //if(License.licenceIsOk()) {
-
-
-				 Intent int_auto = new Intent(MainActivity.this, AutoActivity.class);
-				 startActivity(int_auto);
-			 }else
-			 {
-				 Intent int_ask_serial = new Intent(MainActivity.this, EnterSerialActivity.class);
-				 startActivity(int_ask_serial);
-
-				 /*if(serial!=null) {
-
-					 License.generateReqCode();
-					 Intent int_ask_licence = new Intent(MainActivity.this, AskKeyActivity.class);
-					 startActivity(int_ask_licence);
-				 }
-				 else{
-
-					 Intent int_ask_serial = new Intent(MainActivity.this, EnterSerialActivity.class);
-					 startActivity(int_ask_serial);
-				 }*/
-			 }
 
 		 }catch(Exception ex){
 			 Log.e("TIRAX ERROR","error accured"+ex);
 		 }
 	 }
+
+	private void goToCorrectPage() throws Exception {
+
+		Pages.auto_manual = Pages.AUTO;
+
+		//TODO licence
+		String serial  = SecurityFile.load(SecurityType.SERIAL);
+		if(serial!=null){
+
+			Pages.auto_type = Pages.SCAR;
+			Intent int_auto = new Intent(MainActivity.this, StartActivity.class);
+			startActivity(int_auto);
+
+		}else
+		{
+			Intent int_ask_serial = new Intent(MainActivity.this, EnterSerialActivity.class);
+			startActivity(int_ask_serial);
+
+		}
+
+	}
 
 	private void logFileWarning() {
 		if(LogCatEnabler.filesize)

@@ -58,7 +58,10 @@
             android:name="main.activity.EnterPassActivity"
             android:label="@string/title_activity_enter_pass" />
         <activity
-            android:name="main.activity.TestResult"
+            android:name="main.activity.Test.TestResult"
+            android:label="@string/title_activity_test_result"></activity>
+        <activity
+            android:name="main.activity.Test.TesterActivity"
             android:label="@string/title_activity_test_result"></activity>
     </application>
 

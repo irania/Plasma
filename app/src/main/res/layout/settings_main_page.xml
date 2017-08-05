@@ -16,22 +16,10 @@
         android:id="@+id/btn_settings_time" />
 
     <Button
-        android:layout_width="177dp"
-        android:layout_height="wrap_content"
-        android:text="Serial Brief Test"
-        android:id="@+id/btn_settings_serialtext" />
-
-    <Button
-        android:layout_width="182dp"
-        android:layout_height="wrap_content"
-        android:text="Power 0->100 Test"
-        android:id="@+id/btn_settings_power0t100" />
-
-    <Button
         android:layout_width="190dp"
         android:layout_height="wrap_content"
-        android:text="Shower Test"
-        android:id="@+id/btn_settings_showertest" />
+        android:text="Test"
+        android:id="@+id/btn_settings_test" />
 
     <Button
         android:layout_width="178dp"

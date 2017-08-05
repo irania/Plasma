@@ -1,4 +1,4 @@
-package main.activity;
+package main.activity.Test;
 
 import android.os.Bundle;
 import android.os.Handler;
@@ -15,7 +15,7 @@ import com.Tirax.plasma.R;
 import com.Tirax.plasma.Test.TestShower;
 
 
-public class TestResult extends MyActivity implements View.OnClickListener {
+public class TestResult extends MyActivity implements View.OnLongClickListener {
 
     protected static String log="";
     protected  static  String log_header="";
@@ -36,20 +36,13 @@ public class TestResult extends MyActivity implements View.OnClickListener {
         setContentView(R.layout.activity_test_result);
 
         Button back  = (Button) findViewById(R.id.btn_testres_back);
-        back.setOnClickListener(this);
+        back.setOnLongClickListener(this);
 
         log="";
         t.start();
         UIHandler.postDelayed(UpdateUI, 0);
     }
 
-    @Override
-    public void onClick(View view) {
-        if(view.getId() == R.id.btn_testres_back){
-            t.interrupt();
-            this.finish();
-        }
-    }
 
     private Handler UIHandler = new Handler();
     Runnable UpdateUI = new Runnable() {
@@ -61,6 +54,15 @@ public class TestResult extends MyActivity implements View.OnClickListener {
             UIHandler.postDelayed(UpdateUI, 100);
         }
     };
+
+    @Override
+    public boolean onLongClick(View v) {
+        if(v.getId() == R.id.btn_testres_back){
+            t.interrupt();
+            this.finish();
+        }
+        return false;
+    }
 
     public class TestThread extends Thread {
         public void run() {
