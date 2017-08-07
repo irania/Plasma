@@ -16,8 +16,9 @@ public class TestShower {
             e.printStackTrace();
         }
         TestResult.setLog("Running...");
+
         for (int i = 0; i < 3600; i++){
-            DataProvider.setRegister(DataProvider.RPWR, (char) 100);
+
             DataProvider.setRegister(DataProvider.MTB1, (char) 1);
             try {
                 Thread.sleep(1000);
