@@ -3,7 +3,7 @@ package com.Tirax.plasma.Test;
 import com.Tirax.plasma.SerialPortsHardware.DataProvider;
 import com.Tirax.plasma.SerialPortsHardware.SerialComHelper;
 
-import main.activity.TestResult;
+import main.activity.Test.TestResult;
 
 /**
  * Created by MHSaadatfar on 4/14/2017.
