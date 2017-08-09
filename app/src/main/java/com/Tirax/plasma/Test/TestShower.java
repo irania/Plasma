@@ -17,16 +17,19 @@ public class TestShower {
         }
         TestResult.setLog("Running...");
 
-        for (int i = 0; i < 3600; i++){
+        DataProvider.setRegister(DataProvider.RPWR, (char) 50);
+        DataProvider.setRegister(DataProvider.MTTI, (char) 10);
+
+        while(true) {
 
             DataProvider.setRegister(DataProvider.MTB1, (char) 1);
             try {
-                Thread.sleep(1000);
+                Thread.sleep(11000);
             } catch (InterruptedException e) {
                 return;
             }
             if (Thread.interrupted()) return;
         }
-        TestResult.setLog("Done.");
+        //TestResult.setLog("Done.");
     }
 }

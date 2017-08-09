@@ -13,6 +13,7 @@ public class DataProvider extends ReadWriteSerialPort {
 	public static char RMER = 0;//Micro Error
 	public static char RUER = 1;//UI Error
     public static char MTB1 = 2;//Micro Test Bit 1
+	public static char MTTI = 3;//Micro Test Time
 	public static char RMST = 10;//Micro Status
 	public static char RUST = 11;//UI Status
 	public static char RMKY = 12;//Micro Keys
@@ -30,7 +31,7 @@ public class DataProvider extends ReadWriteSerialPort {
 	public static char RTMP = 50;//Temperature
 	public static char RPRS = 53;//Pressure
 
-	public static String[] registersName = new String[]{"RMER", "RUER", "MTB1","3","4","5","6","7","8","9","RMST","RUST","RMKY","13","14","15","16","17","18","19","RTYP0","RTYP1","RFRQ","RPWR","RPFRQ","RPLEN","RSNUM","RVCLV","RLPGO","RLPGF","30","31","32","33","34","35","36","37","38","39","RCRN1","RCRN2","RCRN3","43","44","45","46","47","48","49","RTMP1","RTMP2","RTMP3","RPRS"};
+	public static String[] registersName = new String[]{"RMER", "RUER", "MTB1","MTTI","4","5","6","7","8","9","RMST","RUST","RMKY","13","14","15","16","17","18","19","RTYP0","RTYP1","RFRQ","RPWR","RPFRQ","RPLEN","RSNUM","RVCLV","RLPGO","RLPGF","30","31","32","33","34","35","36","37","38","39","RCRN1","RCRN2","RCRN3","43","44","45","46","47","48","49","RTMP1","RTMP2","RTMP3","RPRS"};
 	public static boolean[] registersUseful = new boolean[]{true, true, true,false,false,false,false,false,false,false,true,true,true,false,false,false,false,false,false,false,true,true,true,true,true,true,true,true,true,true,false,false,false,false,false,false,false,false,false,false,true,true,true,false,false,false,false,false,false,false,true,true,true,true};
 	//Bits
 	public static char RST_ON= 0;//OFF/ON
