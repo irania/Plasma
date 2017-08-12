@@ -85,8 +85,8 @@ public class MainActivity  extends Activity    implements OnClickListener{
 		String serial  = SecurityFile.load(SecurityType.SERIAL);
 		if(serial!=null){
 
-			Pages.auto_type = Pages.SCAR;
-			Intent int_auto = new Intent(MainActivity.this, StartActivity.class);
+			//Pages.auto_type = Pages.SCAR;
+			Intent int_auto = new Intent(MainActivity.this, AutoActivity.class);
 			startActivity(int_auto);
 
 		}else
