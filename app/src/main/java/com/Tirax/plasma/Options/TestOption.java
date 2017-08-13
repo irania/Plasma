@@ -10,6 +10,7 @@ public class TestOption extends Mode {
         public TestOption(){
             super();
             powerMultiplyer =1;
+            power=100;
             autoMode ="test";
             
         }

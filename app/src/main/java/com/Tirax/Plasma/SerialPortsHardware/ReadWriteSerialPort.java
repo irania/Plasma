@@ -15,7 +15,7 @@ public class ReadWriteSerialPort extends AsyncTask<Void, Void, Void>{
 
 	private final static Integer RESENDTIME = 300;
 
-	public final static Integer REGISTERS_NUMBER = 60;
+	public final static Integer REGISTERS_NUMBER = 54;
 
 	private final static char WRITE_STARTBIT =255;
 	private final char ACK_STARTBIT =254;
@@ -59,12 +59,12 @@ public class ReadWriteSerialPort extends AsyncTask<Void, Void, Void>{
 		return null;
 	}
 	private void senAllRegisters() {
-		/*if(LogCatEnabler.resetActivated)
-			Log.e("TIRAX", "******************************reset micro***********************************");
+		if(LogCatEnabler.resetActivated)
+			Log.e("TIRAX", "******************************send registers***********************************");
 		for(int i=0;i<REGISTERS_NUMBER;i++) {
 			if(DataProvider.registersUseful[i])
 				addToChangedRegisters((char) i);
-		}*/
+		}
 	}
 	protected boolean reset() {
 		//TODO fix it for reset time

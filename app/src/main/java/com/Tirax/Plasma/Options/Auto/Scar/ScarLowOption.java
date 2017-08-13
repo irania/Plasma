@@ -9,8 +9,8 @@ public class ScarLowOption extends Mode {
 
         public ScarLowOption(){
             super();
-            powerMultiplyer =0.55;
-            powerAdder = 14.5;
+            powerMultiplyer =0.89;
+            powerAdder = 11;
             autoMode ="scar";
             
         }

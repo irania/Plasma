@@ -9,8 +9,8 @@ public class MoleLowOption extends Mode {
 
         public MoleLowOption(){
             super();
-            powerMultiplyer =0.55;
-            powerAdder = 14.5;
+            powerMultiplyer =0.89;
+            powerAdder = 11;
             autoMode ="mole";
             
         }
