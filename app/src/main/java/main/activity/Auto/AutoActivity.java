@@ -17,6 +17,7 @@ import com.Tirax.plasma.Storage.Values;
 
 import main.activity.EnterPassActivity;
 import main.activity.StartActivity;
+import main.activity.Test.TestStartActivity;
 
 
 public class AutoActivity extends MyActivity implements OnClickListener {
@@ -33,8 +34,8 @@ public class AutoActivity extends MyActivity implements OnClickListener {
         Button blepharo=(Button) findViewById(R.id.btn_blepharoplasty);
         Button scar=(Button) findViewById(R.id.btn_scar);
         Button mole = (Button) findViewById(R.id.btn_mole);
+        ImageButton test = (ImageButton) findViewById(R.id.btn_auto_test);
         ImageButton settingsBtn =(ImageButton) findViewById(R.id.btn_auto_settings);
-
 
 
         //declaring onclicklistener functions
@@ -43,8 +44,7 @@ public class AutoActivity extends MyActivity implements OnClickListener {
         scar.setOnClickListener(this);
         mole.setOnClickListener(this);
         settingsBtn.setOnClickListener(this);
-
-
+        test.setOnClickListener(this);
 
     }
 
@@ -75,6 +75,11 @@ public class AutoActivity extends MyActivity implements OnClickListener {
         if(arg0.getId() == R.id.btn_mole){
             Pages.auto_type = Pages.MOLE;
             startActivity(int_start);
+        }
+
+        if(arg0.getId() == R.id.btn_auto_test){
+            Intent int_test = new Intent(AutoActivity.this, TestStartActivity.class);
+            startActivity(int_test);
         }
 
         if (arg0.getId() == R.id.btn_auto_settings) {
