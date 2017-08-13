@@ -9,6 +9,7 @@ public class Mode {
 
     public double powerMultiplyer =0;
     public int power =0;
+    public double powerAdder=0;
     public String autoMode="";
     public Mode(){
         powerMultiplyer = 1;

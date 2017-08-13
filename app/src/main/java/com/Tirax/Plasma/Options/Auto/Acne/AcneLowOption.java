@@ -9,7 +9,8 @@ public class AcneLowOption extends Mode {
 
         public AcneLowOption(){
             super();
-            powerMultiplyer =0.7;
+            powerMultiplyer =0.89;
+            powerAdder = 11;
             autoMode ="acne";
             
         }

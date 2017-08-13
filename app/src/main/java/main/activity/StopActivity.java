@@ -92,13 +92,13 @@ public class StopActivity extends MyActivity implements OnClickListener {
 
 
 			public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-				if (progress < 5) {
-					seekBar.setProgress(5);
-					seekBarProgress = 5;
+				if (progress < 10) {
+					seekBar.setProgress(10);
+					seekBarProgress = 10;
 				} else
 					seekBarProgress = progress;
 				power.setText(seekBarProgress + "%");
-				powerReal.setText((int)(seekBarProgress*op.powerMultiplyer*powerBase/100) + " pulse/sec");
+				powerReal.setText((int)((seekBarProgress*op.powerMultiplyer+op.powerAdder)*powerBase/100) + " pulse/sec");
 
 
 			}
@@ -110,8 +110,8 @@ public class StopActivity extends MyActivity implements OnClickListener {
 
 			public void onStopTrackingTouch(SeekBar seekBar) {
 				power.setText(seekBarProgress + "%");
-				powerReal.setText((int)(seekBarProgress*op.powerMultiplyer*powerBase/100) + " pulse/sec");
-				DataProvider.setRegister(DataProvider.RPWR, (char) (seekBarProgress * op.powerMultiplyer));
+				powerReal.setText((int)((seekBarProgress*op.powerMultiplyer+op.powerAdder)*powerBase/100) + " pulse/sec");
+				DataProvider.setRegister(DataProvider.RPWR, (char) (seekBarProgress * op.powerMultiplyer+op.powerAdder));
 
 			}
 
@@ -148,7 +148,7 @@ public class StopActivity extends MyActivity implements OnClickListener {
 		mode_text.setText(op.autoMode);
 
 		power.setText(op.power + "%");
-		powerReal.setText((int)(op.power*op.powerMultiplyer*powerBase/100) + " pulse/sec");
+		powerReal.setText((int)((op.power*op.powerMultiplyer+op.powerAdder)*powerBase/100) + " pulse/sec");
 
 		powerValue=op.power;
 
@@ -168,8 +168,8 @@ public class StopActivity extends MyActivity implements OnClickListener {
 		SeekBar seekBar = (SeekBar) findViewById(R.id.seekBar);
 		seekBar.setProgress(seekBarProgress);
 		power.setText(seekBarProgress + "%");
-		powerReal.setText((int)(seekBarProgress*op.powerMultiplyer*powerBase/100) + " pulse/sec");
-		DataProvider.setRegister(DataProvider.RPWR, (char) (seekBarProgress * op.powerMultiplyer));
+		powerReal.setText((int)((seekBarProgress*op.powerMultiplyer+op.powerAdder)*powerBase/100) + " pulse/sec");
+		DataProvider.setRegister(DataProvider.RPWR, (char) (seekBarProgress * op.powerMultiplyer+op.powerAdder));
 
 	}
 	@Override

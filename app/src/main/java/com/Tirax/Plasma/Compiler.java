@@ -10,11 +10,7 @@ import com.Tirax.plasma.SerialPortsHardware.DataProvider;
 public class Compiler {
 
     public static void setRegisters(Mode mode){
-
-
-
-        DataProvider.setRegister(DataProvider.RPWR, (char) (mode.power*mode.powerMultiplyer));
-
+        DataProvider.setRegister(DataProvider.RPWR, (char) (mode.power*mode.powerMultiplyer+mode.powerAdder));
 
         if (LogCatEnabler.compilerSetRegLog) {
             Log.e("TIRAXREG", "POWER" + mode.powerMultiplyer);

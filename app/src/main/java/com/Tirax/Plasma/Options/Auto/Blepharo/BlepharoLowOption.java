@@ -9,7 +9,8 @@ public class BlepharoLowOption extends Mode {
 
         public BlepharoLowOption(){
             super();
-            powerMultiplyer =0.5;
+            powerMultiplyer =0.89;
+            powerAdder = 11;
             autoMode ="blepharo";
             
         }

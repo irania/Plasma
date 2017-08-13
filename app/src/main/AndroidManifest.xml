@@ -54,12 +54,15 @@
         <activity android:name="main.activity.ShowTimes" />
         <activity android:name="main.activity.ShowSerialNumber" />
         <activity android:name="main.activity.EnterSerialActivity" />
+        <activity android:name="main.activity.Test.TestStopActivity" />
+        <activity android:name="main.activity.Test.TestStartActivity" />
         <activity
             android:name="main.activity.EnterPassActivity"
             android:label="@string/title_activity_enter_pass" />
         <activity
             android:name="main.activity.Test.TestResult"
             android:label="@string/title_activity_test_result"></activity>
+
         <activity
             android:name="main.activity.Test.TesterActivity"
             android:label="@string/title_activity_test_result"></activity>

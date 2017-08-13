@@ -84,10 +84,10 @@ public class StartActivity extends MyActivity implements OnClickListener {
 
 
 				public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-					if(progress<5) {
-						seekBar.setProgress(5);
+					if(progress<10) {
+						seekBar.setProgress(10);
 
-						seekBarProgress = 5;
+						seekBarProgress = 10;
 					}
 					else
 						seekBarProgress = progress;
