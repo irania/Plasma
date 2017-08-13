@@ -3,14 +3,25 @@ package main.activity.Auto;
 
 
 
+import android.app.ActivityManager;
+import android.app.KeyguardManager;
+import android.app.admin.DevicePolicyManager;
+import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.PowerManager;
+import android.os.SystemClock;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
 
 import com.Tirax.plasma.MyActivity;
+import com.Tirax.plasma.MyDeviceAdminReciver;
 import com.Tirax.plasma.Storage.Pages;
 import com.Tirax.plasma.R;
 import com.Tirax.plasma.Storage.Values;
@@ -46,7 +57,11 @@ public class AutoActivity extends MyActivity implements OnClickListener {
         settingsBtn.setOnClickListener(this);
         test.setOnClickListener(this);
 
+
+
     }
+
+
 
     @Override
     public void onClick(View arg0) {

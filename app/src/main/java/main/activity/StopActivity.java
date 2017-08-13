@@ -2,9 +2,16 @@ package main.activity;
 
 
 
+import android.app.ActivityManager;
+import android.app.KeyguardManager;
+import android.app.admin.DevicePolicyManager;
+import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.PowerManager;
+import android.os.SystemClock;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
@@ -295,6 +302,7 @@ public class StopActivity extends MyActivity implements OnClickListener {
 				powerRange.getLayoutParams().height = (10)*20;
 
 			if(DataProvider.getPedalisActive()){
+				lock();
 				PedalWasActive=100;
 				pedalTime++;
 
@@ -302,12 +310,57 @@ public class StopActivity extends MyActivity implements OnClickListener {
 			else{
 				PedalWasActive--;
 			}
+			if(PedalWasActive<0)
+				unlock();
 			timetext.setText((time-1)+"'");
 			if(!finished)
 				UIHandler.postDelayed(UIreportsRunnable, 1);
 		}
 
 	};
+
+	private void lock() {
+
+
+		//Lock device
+		// Enable the Administrator mode.
+		DevicePolicyManager deviceManger = (DevicePolicyManager) getSystemService(
+				Context.DEVICE_POLICY_SERVICE );
+		ActivityManager activityManager = (ActivityManager) getSystemService(
+				Context.ACTIVITY_SERVICE );
+		ComponentName compName = new ComponentName( getApplicationContext( ),
+				MyDeviceAdminReciver.class);
+		Intent device_policy_manager_Int = new Intent( DevicePolicyManager
+				.ACTION_ADD_DEVICE_ADMIN );
+		device_policy_manager_Int.putExtra( DevicePolicyManager.EXTRA_DEVICE_ADMIN,
+				compName );
+		device_policy_manager_Int.putExtra( DevicePolicyManager.EXTRA_ADD_EXPLANATION,
+				"Additional text explaining why this needs to be added." );
+		startActivityForResult(device_policy_manager_Int, 1);
+
+		// Check if the Administrator is enabled.
+		boolean active = deviceManger.isAdminActive(compName);
+
+		if ( active ) {
+			Log.i("isAdminActive", "Admin enabled!");
+
+			// If admin is enable - Lock device.
+			deviceManger.lockNow( );
+		}
+	}
+
+	private void unlock(){
+		//Unlock
+		KeyguardManager km = (KeyguardManager) getSystemService(Context.KEYGUARD_SERVICE);
+		final KeyguardManager.KeyguardLock kl = km .newKeyguardLock("MyKeyguardLock");
+		kl.disableKeyguard();
+
+		PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
+		PowerManager.WakeLock wakeLock = pm.newWakeLock(PowerManager.FULL_WAKE_LOCK
+				| PowerManager.ACQUIRE_CAUSES_WAKEUP
+				| PowerManager.ON_AFTER_RELEASE, "MyWakeLock");
+		wakeLock.acquire();
+	}
 
 
 
