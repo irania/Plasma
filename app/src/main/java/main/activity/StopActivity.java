@@ -78,9 +78,6 @@ public class StopActivity extends MyActivity implements OnClickListener {
 
 		timerHandler.postDelayed(TimerRunnable, 0);
 		UIHandler.postDelayed(UIreportsRunnable, 0);
-
-
-
 	}
 
 	private void initialSeekBar() {

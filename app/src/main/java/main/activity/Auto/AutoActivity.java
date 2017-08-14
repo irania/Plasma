@@ -72,7 +72,7 @@ public class AutoActivity extends MyActivity implements OnClickListener {
         //declaring intents
         Intent int_start=new Intent(AutoActivity.this,StartActivity.class);
         Pages.step = Pages.LOW;
-        Values.power = 5;
+        Values.power = 10;
 
         //starting corresponding intents
         if (arg0.getId()==R.id.btn_acne){
