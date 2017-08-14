@@ -169,7 +169,7 @@ public class StartActivity extends MyActivity implements OnClickListener {
 
 		seekBarProgress += value;
 		seekBarProgress = (seekBarProgress/5)*5;
-		if(seekBarProgress> 100 || seekBarProgress<5)
+		if(seekBarProgress> 100 || seekBarProgress<10)
 			seekBarProgress -=value;
 		SeekBar seekBar = (SeekBar) findViewById(R.id.seekBar);
 		seekBar.setProgress(seekBarProgress);

@@ -3,12 +3,14 @@ package main.activity.Auto;
 
 
 
+import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.KeyguardManager;
 import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.os.PowerManager;
 import android.os.SystemClock;
@@ -20,6 +22,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
 
+import com.Tirax.DeviceAdminReceiver;
 import com.Tirax.plasma.MyActivity;
 import com.Tirax.plasma.MyDeviceAdminReciver;
 import com.Tirax.plasma.Storage.Pages;
@@ -37,7 +40,6 @@ public class AutoActivity extends MyActivity implements OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.plasma_auto);
 
         //declaring main menu buttons
@@ -58,8 +60,9 @@ public class AutoActivity extends MyActivity implements OnClickListener {
         test.setOnClickListener(this);
 
 
-
     }
+
+
 
 
 

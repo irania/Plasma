@@ -61,6 +61,7 @@ public class StopActivity extends MyActivity implements OnClickListener {
 
 	private int powerBase = DataProvider.powerBase;
 	private Integer pedalTime=0;
+	private boolean isLocked=false;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -77,6 +78,7 @@ public class StopActivity extends MyActivity implements OnClickListener {
 
 		timerHandler.postDelayed(TimerRunnable, 0);
 		UIHandler.postDelayed(UIreportsRunnable, 0);
+
 
 
 	}
@@ -311,7 +313,7 @@ public class StopActivity extends MyActivity implements OnClickListener {
 			else{
 				PedalWasActive--;
 			}
-			if(PedalWasActive<0)
+			if(PedalWasActive<=0 && isLocked)
 				unlock();
 			timetext.setText((time-1)+"'");
 			if(!finished)
@@ -325,6 +327,7 @@ public class StopActivity extends MyActivity implements OnClickListener {
 
 		//Lock device
 		// Enable the Administrator mode.
+
 		DevicePolicyManager deviceManger = (DevicePolicyManager) getSystemService(
 				Context.DEVICE_POLICY_SERVICE );
 		ActivityManager activityManager = (ActivityManager) getSystemService(
@@ -348,6 +351,8 @@ public class StopActivity extends MyActivity implements OnClickListener {
 			// If admin is enable - Lock device.
 			deviceManger.lockNow( );
 		}
+
+		isLocked = true;
 	}
 
 	private void unlock(){
@@ -361,6 +366,7 @@ public class StopActivity extends MyActivity implements OnClickListener {
 				| PowerManager.ACQUIRE_CAUSES_WAKEUP
 				| PowerManager.ON_AFTER_RELEASE, "MyWakeLock");
 		wakeLock.acquire();
+		isLocked=false;
 	}
 
 
