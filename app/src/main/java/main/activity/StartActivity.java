@@ -49,7 +49,7 @@ public class StartActivity extends MyActivity implements OnClickListener {
 		power = (TextView) findViewById(R.id.txt_power_start);
 		powerReal = (TextView) findViewById(R.id.txt_start_powerEqual);
 		power.setText(powerValue + "%");
-		powerReal.setText((int)(powerValue* DataProvider.powerBase*op.powerMultiplyer/100) + " pulse/sec");
+		powerReal.setText(((int)(powerValue*op.powerMultiplyer)*DataProvider.powerBase/100) + " pulse/sec");
 
 
 		initialSeekBar();
@@ -90,8 +90,7 @@ public class StartActivity extends MyActivity implements OnClickListener {
 
 				public void onStopTrackingTouch(SeekBar seekBar) {
 					power.setText(seekBarProgress + "%");
-					powerReal.setText((int)(seekBarProgress* DataProvider.powerBase*op.powerMultiplyer/100) + " pulse/sec");
-
+					powerReal.setText(((int)(seekBarProgress*op.powerMultiplyer)*DataProvider.powerBase/100) + " pulse/sec");
 
 				}
 
@@ -163,7 +162,7 @@ public class StartActivity extends MyActivity implements OnClickListener {
 		SeekBar seekBar = (SeekBar) findViewById(R.id.seekBar);
 		seekBar.setProgress(seekBarProgress);
 		power.setText(seekBarProgress + "%");
-		powerReal.setText((int)(seekBarProgress* DataProvider.powerBase*op.powerMultiplyer/100) + " pulse/sec");
+		powerReal.setText(((int)(seekBarProgress*op.powerMultiplyer)*DataProvider.powerBase/100) + " pulse/sec");
 
 	}
 
