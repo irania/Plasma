@@ -294,7 +294,7 @@ public class StopActivity extends MyActivity implements OnClickListener {
 				powerRange.getLayoutParams().height = (10)*20;
 
 			if(DataProvider.getPedalisActive()){
-				PedalWasActive=1;
+				PedalWasActive=100;
 				pedalTime++;
 
 			}
