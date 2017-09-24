@@ -235,7 +235,7 @@ public class StopActivity extends MyActivity implements OnClickListener {
 		try {
 
 			SecurityFile.save(SecurityType.TIME, ( tryParse(SecurityFile.load(SecurityType.TIME))+ time)+"");
-			SecurityFile.save(SecurityType.PEDAL_TIME, ( tryParse(SecurityFile.load(SecurityType.PEDAL_TIME))+ pedalTime)+"");
+			SecurityFile.save(SecurityType.PEDAL_TIME, ( tryParse(SecurityFile.load(SecurityType.PEDAL_TIME))+ pedalTime/60000)+"");
 		} catch (Exception e) {
 
 			//TODO get a big error

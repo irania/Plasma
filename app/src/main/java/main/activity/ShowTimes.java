@@ -53,7 +53,7 @@ public class ShowTimes extends MyActivity implements View.OnClickListener {
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-				tv.setText("time(min): "+t + " pedal time(ms): "+t2);
+				tv.setText("time(min): "+t + " pedal time(min): "+t2);
 				if(!finished)
 						UIHandler.postDelayed(UIreportsRunnable, 300);
 			}
