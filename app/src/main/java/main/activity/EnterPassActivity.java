@@ -33,7 +33,7 @@ public class EnterPassActivity extends MyActivity implements  View.OnClickListen
             PackageInfo pInfo = this.getPackageManager().getPackageInfo(getPackageName(), 0);
             String version = pInfo.versionName;
             TextView vt = (TextView) findViewById(R.id.txt_pass_version);
-            vt.setText("version "+version+" micro version "+ (int)DataProvider.getRegister(DataProvider.MVE));
+            vt.setText("LCD Version: "+version+" ,Micro Version: "+ (int)DataProvider.getRegister(DataProvider.MVE));
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }
