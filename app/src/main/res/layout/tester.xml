@@ -22,6 +22,12 @@
         android:id="@+id/btn_settings_showertest" />
 
     <Button
+        android:layout_width="187dp"
+        android:layout_height="wrap_content"
+        android:text="Pulse Test"
+        android:id="@+id/btn_settings_pulsetest" />
+
+    <Button
         android:layout_width="178dp"
         android:layout_height="wrap_content"
         android:text="Back"

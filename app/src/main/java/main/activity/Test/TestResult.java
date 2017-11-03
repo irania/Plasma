@@ -9,6 +9,7 @@ import android.widget.TextView;
 import com.Tirax.plasma.Enums.TestType;
 import com.Tirax.plasma.MyActivity;
 import com.Tirax.plasma.SerialPortsHardware.DataProvider;
+import com.Tirax.plasma.Test.TestPulse;
 import com.Tirax.plasma.Test.TestRun0t100;
 import com.Tirax.plasma.Test.TestSerialBrief;
 import com.Tirax.plasma.R;
@@ -82,6 +83,12 @@ public class TestResult extends MyActivity implements View.OnLongClickListener {
                     case SHOWER: {
                         TestShower tsb = new TestShower();
                         TestResult.log_header="Shower Test Result:\n";
+                        tsb.Run();
+                        break;
+                    }
+                    case Pulse: {
+                        TestPulse tsb = new TestPulse();
+                        TestResult.log_header="Pulse Test Result:\n";
                         tsb.Run();
                         break;
                     }

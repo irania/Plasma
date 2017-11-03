@@ -28,11 +28,13 @@ public class TesterActivity extends MyActivity implements View.OnLongClickListen
         Button serial_brief_test = (Button)findViewById(R.id.btn_settings_serialtext);
         Button power0t100_test = (Button)findViewById(R.id.btn_settings_power0t100);
         Button shower_test = (Button)findViewById(R.id.btn_settings_showertest);
+        Button pulse_test = (Button)findViewById(R.id.btn_settings_pulsetest);
 
         back.setOnLongClickListener(this);
         serial_brief_test.setOnLongClickListener(this);
         power0t100_test.setOnLongClickListener(this);
         shower_test.setOnLongClickListener(this);
+        pulse_test.setOnLongClickListener(this);
 
 
 
@@ -64,6 +66,11 @@ public class TesterActivity extends MyActivity implements View.OnLongClickListen
         if (v.getId()==R.id.btn_settings_showertest){
             Intent int_settings = new Intent(TesterActivity.this,TestResult.class);
             TestResult.test = TestType.SHOWER;
+            startActivity(int_settings);
+        }
+        if (v.getId()==R.id.btn_settings_pulsetest){
+            Intent int_settings = new Intent(TesterActivity.this,TestResult.class);
+            TestResult.test = TestType.Pulse;
             startActivity(int_settings);
         }
 

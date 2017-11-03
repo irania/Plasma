@@ -15,21 +15,22 @@ public class TestShower {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        TestResult.setLog("Running...");
 
         DataProvider.setRegister(DataProvider.RPWR, (char) 50);
-        DataProvider.setRegister(DataProvider.MTTI, (char) 10);
+        DataProvider.setRegister(DataProvider.MTTI, (char) 9);
 
-        while(true) {
-
-            DataProvider.setRegister(DataProvider.MTB1, (char) 1);
-            try {
-                Thread.sleep(11000);
-            } catch (InterruptedException e) {
-                return;
+        for (int i=0;i<15;i++) {
+            TestResult.setLog("Running...  (Min: "+i+")");
+            for (int j=0;j<6;j++) {
+                DataProvider.setRegister(DataProvider.MTB1, (char) 1);
+                try {
+                    Thread.sleep(10000);
+                } catch (InterruptedException e) {
+                    return;
+                }
+                if (Thread.interrupted()) return;
             }
-            if (Thread.interrupted()) return;
         }
-        //TestResult.setLog("Done.");
+        TestResult.setLog("Test Done.");
     }
 }
