@@ -9,18 +9,22 @@ import com.Tirax.plasma.R;
 
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-  public class ShowLogCat extends MyActivity implements View.OnClickListener {
+public class ShowLogCat extends MyActivity implements View.OnClickListener {
     int backpressed=0;
-	@Override
+    public boolean finished=false;
+    private Handler timerHandler = new Handler();
+    private String filterValue="";
+    @Override
     public void onCreate(Bundle savedInstanceState) {
-         super.onCreate(savedInstanceState);
-         setContentView(R.layout.logcat);
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.logcat);
         Button con=(Button)findViewById(R.id.btn_logcat_filter);
         Button send=(Button)findViewById(R.id.btn_filter_send);
         Button rec=(Button)findViewById(R.id.btn_filter_rec);
@@ -38,71 +42,90 @@ import android.widget.TextView;
         refresh.setOnClickListener(this);
 
         showLog("");
+
+        timerHandler.postDelayed(TimerRunnable, 0);
+    }
+
+    private void showLog(String filterVal) {
+        try {
+
+            Process process = Runtime.getRuntime().exec("logcat -d");
+            BufferedReader bufferedReader = new BufferedReader(
+                    new InputStreamReader(process.getInputStream()));
+            StringBuilder log=new StringBuilder();
+            String line = "";
+            while ((line = bufferedReader.readLine()) != null) {
+
+                if(line.contains(filterVal)) {
+                    log.insert(0,line+"\n");
+
+                }
+
+            }
+            TextView tv = (TextView)findViewById(R.id.textView1);
+            tv.setMovementMethod(new ScrollingMovementMethod());
+            tv.setText(log.toString());
+            tv.scrollTo(0,0);
+        } catch (IOException e) {
         }
+    }
 
-      private void showLog(String filterVal) {
-          try {
+    @Override
+    public void onBackPressed() {
+        //disable button back
+        backpressed++;
+        if(backpressed>1)
+        {
+            try {
+                Runtime.getRuntime().exec("logcat -c");
+                this.finish();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            backpressed=0;
+        }
+    }
 
-              Process process = Runtime.getRuntime().exec("logcat -d");
-              BufferedReader bufferedReader = new BufferedReader(
-                      new InputStreamReader(process.getInputStream()));
-              StringBuilder log=new StringBuilder();
-              String line = "";
-              while ((line = bufferedReader.readLine()) != null) {
+    @Override
+    public void onClick(View v) {
+        if(R.id.btn_logcat_filter == v.getId()) {
+            showLog(((EditText)findViewById(R.id.txt_filter)).getText().toString());
+        }
+        if(R.id.btn_filter_send == v.getId()) {
+            filterValue = "TIRAX1";
+            showLog(filterValue);
+        }
+        if(R.id.btn_filter_rec == v.getId()) {
+            filterValue = "TIRAX4";
+            showLog(filterValue);
+        }
+        if(R.id.btn_filter_tirax == v.getId()) {
+            filterValue = "TIRAX";
+            showLog(filterValue);
+        }
+        if(R.id.btn_filter_clear == v.getId()) {
+            ((TextView)findViewById(R.id.textView1)).setText("");
+        }
+        if(R.id.btn_filter_refresh == v.getId()) {
+            filterValue = "";
+            ((TextView)findViewById(R.id.textView1)).setText("");
+            showLog(filterValue);
+        }
+        if(R.id.btn_filter_back == v.getId()) {
+            finished=true;
+            this.finish();
+        }
+    }
 
-                  if(line.contains(filterVal)) {
-                      log.insert(0,line+"\n");
 
-                  }
+    Runnable TimerRunnable = new Runnable() {
 
-              }
-              TextView tv = (TextView)findViewById(R.id.textView1);
-              tv.setMovementMethod(new ScrollingMovementMethod());
-              tv.setText(log.toString());
-              tv.scrollTo(0,0);
-          } catch (IOException e) {
-          }
-      }
+        @Override
+        public void run() {
 
-      @Override
-	 public void onBackPressed() {  
-		 //disable button back
-		 backpressed++;
-		 if(backpressed>1)
-		 {
-	        	try {
-					Runtime.getRuntime().exec("logcat -c");
-					this.finish();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			 backpressed=0;
-		 }
-	 }
-
-      @Override
-      public void onClick(View v) {
-          if(R.id.btn_logcat_filter == v.getId()) {
-              showLog(((EditText)findViewById(R.id.txt_filter)).getText().toString());
-          }
-          if(R.id.btn_filter_send == v.getId()) {
-              showLog("TIRAX1");
-          }
-          if(R.id.btn_filter_rec == v.getId()) {
-              showLog("TIRAX4");
-          }
-          if(R.id.btn_filter_tirax == v.getId()) {
-              showLog("TIRAX");
-          }
-          if(R.id.btn_filter_clear == v.getId()) {
-              ((TextView)findViewById(R.id.textView1)).setText("");
-          }
-          if(R.id.btn_filter_refresh == v.getId()) {
-              ((TextView)findViewById(R.id.textView1)).setText("");
-              showLog("");
-          }
-          if(R.id.btn_filter_back == v.getId()) {
-              this.finish();
-          }
-      }
-  }
+            showLog(filterValue);
+            if(!finished)
+                timerHandler.postDelayed(TimerRunnable, 60000);
+        }
+    };
+}
